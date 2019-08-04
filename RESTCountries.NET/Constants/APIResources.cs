@@ -1,5 +1,8 @@
 ﻿namespace RESTCountries.Constants
 {
+    /// <summary>
+    /// RESTCountries Endpoints class.
+    /// </summary>
     public static class APIResources
     {
         public static string RESTCOUNTRIES_BASE_URI = "https://restcountries.eu/rest/v2/";
