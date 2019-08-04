@@ -4,6 +4,7 @@ RESTCountriesAPI.cs
 Kodjo Laurent Egbakou
 */
 
+using AppREstCountries.Helpers;
 using Newtonsoft.Json.Linq;
 using RESTCountries.Models;
 using RestSharp;
@@ -43,6 +44,27 @@ namespace RESTCountries.Services
                 return jsonArray.ToObject<List<Country>>();
             }
             throw new Exception("No country found. Please check if https://restcountries.eu is avialable.");
+        }
+
+        /// <summary>
+        /// Search by country name. It can be the native name or partial name.
+        /// If partial name, this method could return a list of Countries.
+        /// </summary>
+        /// <param name="name">The name<see cref="string"/>Native name or partial name</param>
+        /// <returns>The <see cref="Task{List{Country}}"/>A list of countries or List of one element.</returns>
+        public static async Task<List<Country>> GetCountriesByNameContainsAsync(string name)
+        {
+            var request = new RestRequest(
+                $"{RESTCOUNTRIES_BASE_URI}{COUNTRY_BY_NAME_SIFFIX_URI}{name}",
+                Method.GET,
+                DataFormat.Json);
+            IRestResponse response = await client.ExecuteGetTaskAsync(request);
+            if (response.IsSuccessful && response.StatusCode.HasFlag(HttpStatusCode.OK))
+            {
+                JArray jsonArray = JArray.Parse(response.Content);
+                return jsonArray.ToObject<List<Country>>();
+            }
+            throw new CountryNotFoundException("name", name);
         }
     }
 }
