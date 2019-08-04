@@ -86,5 +86,25 @@ namespace RESTCountries.Services
             }
             throw new CountryNotFoundException("fullName", fullName);
         }
+
+        /// <summary>
+        /// Search by ISO 3166-1 2-letter or 3-letter country code.
+        /// </summary>
+        /// <param name="countryCode">The countryCode<see cref="string"/>ISO 3166-1 2-letter or 3-letter country code.</param>
+        /// <returns>The <see cref="Task{Country}"/>Country wich ISO 3166-1 code is provided.</returns>
+        public static async Task<Country> GetCountryByCodeAsync(string countryCode)
+        {
+            var request = new RestRequest(
+                $"{RESTCOUNTRIES_BASE_URI}{COUNTRY_BY_CODE_SIFFIX_URI}{countryCode}",
+                Method.GET,
+                DataFormat.Json);
+            IRestResponse response = await client.ExecuteGetTaskAsync(request);
+            if (response.IsSuccessful && response.StatusCode.HasFlag(HttpStatusCode.OK))
+            {
+                JObject jsonObject = JObject.Parse(response.Content);
+                return jsonObject.ToObject<Country>();
+            }
+            throw new CountryNotFoundException("countryCode", countryCode);
+        }
     }
 }
