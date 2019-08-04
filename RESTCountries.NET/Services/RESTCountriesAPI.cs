@@ -106,5 +106,29 @@ namespace RESTCountries.Services
             }
             throw new CountryNotFoundException("countryCode", countryCode);
         }
+
+        /// <summary>
+        /// Search by list of ISO 3166-1 2-letter or 3-letter country codes.
+        /// </summary>
+        /// <param name="codes">The codes<see cref="string[]"/>A list of ISO 3166-1 2-letter or 3-letter country codes.</param>
+        /// <returns>The <see cref="Task{List{Country}}"/>Countries wich ISO 3166-1 codes is provided.</returns>
+        public static async Task<List<Country>> GetCountriesByCodesAsync(params string[] codes)
+        {
+            if (codes.Length == 0)
+                throw new Exception("Parameter(s) can't not be null for argument 'codes'");
+
+            string queryParams = string.Join(";", codes);
+            var request = new RestRequest(
+                $"{RESTCOUNTRIES_BASE_URI}{COUNTRY_BY_LISTOFCODES_SIFFIX_URI}{queryParams}",
+                Method.GET,
+                DataFormat.Json);
+            IRestResponse response = await client.ExecuteGetTaskAsync(request);
+            if (response.IsSuccessful && response.StatusCode.HasFlag(HttpStatusCode.OK))
+            {
+                JArray jsonArray = JArray.Parse(response.Content);
+                return jsonArray.ToObject<List<Country>>();
+            }
+            throw new CountryNotFoundException("codes", queryParams);
+        }
     }
 }
