@@ -66,5 +66,25 @@ namespace RESTCountries.Services
             }
             throw new CountryNotFoundException("name", name);
         }
+
+        /// <summary>
+        /// Search by country full name.
+        /// </summary>
+        /// <param name="fullName">The fullName<see cref="string"/>Full name of the country.</param>
+        /// <returns>The <see cref="Task{Country}"/>Country wich full name is provided.</returns>
+        public static async Task<Country> GetCountryByFullNameAsync(string fullName)
+        {
+            var request = new RestRequest(
+                $"{RESTCOUNTRIES_BASE_URI}{COUNTRY_BY_NAME_SIFFIX_URI}{fullName}{COUNTRY_BY_FULLNAME_SUFFIX_URI}",
+                Method.GET,
+                DataFormat.Json);
+            IRestResponse response = await client.ExecuteGetTaskAsync(request);
+            if (response.IsSuccessful && response.StatusCode.HasFlag(HttpStatusCode.OK))
+            {
+                JArray jsonArray = JArray.Parse(response.Content);
+                return jsonArray[0].ToObject<Country>();
+            }
+            throw new CountryNotFoundException("fullName", fullName);
+        }
     }
 }
