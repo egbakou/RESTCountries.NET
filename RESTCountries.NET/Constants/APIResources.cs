@@ -2,6 +2,7 @@
 {
     /// <summary>
     /// RESTCountries Endpoints class.
+    /// Below are described the REST endpoints available that you can use to search for countries.
     /// </summary>
     public static class APIResources
     {
