@@ -150,5 +150,25 @@ namespace RESTCountries.Services
             }
             throw new CountryNotFoundException("currencycode", currencyCode);
         }
+
+        /// <summary>
+        /// Search by ISO 639-1 language code.
+        /// </summary>
+        /// <param name="languageCode">The languageCode<see cref="string"/>The ISO 639-1 language code.</param>
+        /// <returns>The <see cref="Task{List{Country}}"/>Country wich ISO 639-1 language code is provided.</returns>
+        public static async Task<List<Country>> GetCountriesByLanguageCodeAsync(string languageCode)
+        {
+            var request = new RestRequest(
+                $"{RESTCOUNTRIES_BASE_URI}{COUNTRY_BY_LANGUAGECODE}{languageCode}",
+                Method.GET,
+                DataFormat.Json);
+            IRestResponse response = await client.ExecuteGetTaskAsync(request);
+            if (response.IsSuccessful && response.StatusCode.HasFlag(HttpStatusCode.OK))
+            {
+                JArray jsonArray = JArray.Parse(response.Content);
+                return jsonArray.ToObject<List<Country>>();
+            }
+            throw new CountryNotFoundException("languageCode", languageCode);
+        }
     }
 }
