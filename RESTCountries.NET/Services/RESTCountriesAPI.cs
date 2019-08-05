@@ -191,6 +191,25 @@ namespace RESTCountries.Services
             throw new CountryNotFoundException("capitalCity", capitalCity);
         }
 
-
+        /// <summary>
+        /// Search by calling code.
+        /// </summary>
+        /// <param name="callingCode">The callingCode<see cref="string"/>The calling code.</param>
+        /// <returns>The <see cref="Task{List{Country}}"/>Country or countries using the calling code.</returns>
+        public static async Task<List<Country>> GetCountriesByCallingcodeAsync(string callingCode)
+        {
+            var request = new RestRequest(
+                $"{RESTCOUNTRIES_BASE_URI}{COUNTRY_BY_CALLINGCODE}{callingCode}",
+                Method.GET,
+                DataFormat.Json);
+            IRestResponse response = await client.ExecuteGetTaskAsync(request);
+            if (response.IsSuccessful && response.StatusCode.HasFlag(HttpStatusCode.OK))
+            {
+                JArray jsonArray = JArray.Parse(response.Content);
+                return jsonArray.ToObject<List<Country>>();
+            }
+            throw new CountryNotFoundException("callingCode", callingCode);
+        }
+      
     }
 }
