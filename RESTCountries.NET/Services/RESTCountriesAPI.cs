@@ -210,6 +210,25 @@ namespace RESTCountries.Services
             }
             throw new CountryNotFoundException("callingCode", callingCode);
         }
-      
+
+        /// <summary>
+        /// Search by continent: Africa, Americas, Asia, Europe, Oceania.
+        /// </summary>
+        /// <param name="continent">The continent<see cref="string"/>The continent name.</param>
+        /// <returns>The <see cref="Task{List{Country}}"/>Countries wich is in the continent.</returns>
+        public static async Task<List<Country>> GetCountriesByContinentAsync(string continent)
+        {
+            var request = new RestRequest(
+                $"{RESTCOUNTRIES_BASE_URI}{COUNTRY_BY_CONTINENT}{continent}",
+                Method.GET,
+                DataFormat.Json);
+            IRestResponse response = await client.ExecuteGetTaskAsync(request);
+            if (response.IsSuccessful && response.StatusCode.HasFlag(HttpStatusCode.OK))
+            {
+                JArray jsonArray = JArray.Parse(response.Content);
+                return jsonArray.ToObject<List<Country>>();
+            }
+            throw new CountryNotFoundException("continent", continent);
+        }
     }
 }
