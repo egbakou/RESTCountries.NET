@@ -230,5 +230,38 @@ namespace RESTCountries.Services
             }
             throw new CountryNotFoundException("continent", continent);
         }
+
+        /// <summary>
+        /// Search by regional bloc:
+        /// EU(European Union)
+        /// EFTA(European Free Trade Association)
+        /// CARICOM(Caribbean Community)
+        /// PA(Pacific Alliance)
+        /// AU(African Union)
+        /// USAN(Union of South American Nations)
+        /// EEU(Eurasian Economic Union)
+        /// AL(Arab League)
+        /// ASEAN(Association of Southeast Asian Nations)
+        /// CAIS(Central American Integration System)
+        /// CEFTA(Central European Free Trade Agreement)
+        /// NAFTA(North American Free Trade Agreement)
+        /// SAARC(South Asian Association for Regional Cooperation)
+        /// </summary>
+        /// <param name="regionalBloc">The regionalBloc<see cref="string"/>The regional bloc(eg: EU).</param>
+        /// <returns>The <see cref="Task{List{Country}}"/>Countries wich is in the regional bloc.</returns>
+        public static async Task<List<Country>> GetCountriesByRegionalBlocAsync(string regionalBloc)
+        {
+            var request = new RestRequest(
+                $"{RESTCOUNTRIES_BASE_URI}{COUNTRY_BY_REGIONALBLOC}{regionalBloc}",
+                Method.GET,
+                DataFormat.Json);
+            IRestResponse response = await client.ExecuteGetTaskAsync(request);
+            if (response.IsSuccessful && response.StatusCode.HasFlag(HttpStatusCode.OK))
+            {
+                JArray jsonArray = JArray.Parse(response.Content);
+                return jsonArray.ToObject<List<Country>>();
+            }
+            throw new CountryNotFoundException("regionalBloc", regionalBloc);
+        }
     }
 }
