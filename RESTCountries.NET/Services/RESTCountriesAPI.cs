@@ -170,5 +170,27 @@ namespace RESTCountries.Services
             }
             throw new CountryNotFoundException("languageCode", languageCode);
         }
+
+        /// <summary>
+        /// Search by capital city.
+        /// </summary>
+        /// <param name="capitalCity">The capitalCity<see cref="string"/>Capital city name.</param>
+        /// <returns>The <see cref="Task{Country}"/>Country wich capital city name is provided.</returns>
+        public static async Task<Country> GetCountriesByCapitalCityAsync(string capitalCity)
+        {
+            var request = new RestRequest(
+                $"{RESTCOUNTRIES_BASE_URI}{COUNTRY_BY_CAPITALCITY}{capitalCity}",
+                Method.GET,
+                DataFormat.Json);
+            IRestResponse response = await client.ExecuteGetTaskAsync(request);
+            if (response.IsSuccessful && response.StatusCode.HasFlag(HttpStatusCode.OK))
+            {
+                JArray jsonArray = JArray.Parse(response.Content);
+                return jsonArray[0].ToObject<Country>();
+            }
+            throw new CountryNotFoundException("capitalCity", capitalCity);
+        }
+
+
     }
 }
