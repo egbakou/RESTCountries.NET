@@ -18,7 +18,7 @@ namespace RESTCountries.Services
 {
     /// <summary>
     /// Defines a <see cref="RESTCountriesAPI" />.
-    /// Get information about countries via a RESTful API(Current version: 2.0.5)
+    ///<para>Get information about countries via a RESTful API(Current version: 2.0.5)</para>
     /// </summary>
     public class RESTCountriesAPI
     {
@@ -28,9 +28,9 @@ namespace RESTCountries.Services
         private static readonly RestClient client = new RestClient();
 
         /// <summary>
-        /// The Get all Countries.
+        /// The Get all countries.
         /// </summary>
-        /// <returns>The <see cref="Task{List{Country}}"/>Countries in List Object.</returns>
+        /// <returns>All countries.</returns>
         public static async Task<List<Country>> GetAllCountriesAsync()
         {
             var request = new RestRequest(
@@ -50,8 +50,8 @@ namespace RESTCountries.Services
         /// Search by country name. It can be the native name or partial name.
         /// If partial name, this method could return a list of Countries.
         /// </summary>
-        /// <param name="name">The name<see cref="string"/>Native name or partial name</param>
-        /// <returns>The <see cref="Task{List{Country}}"/>A list of countries or List of one element.</returns>
+        /// <param name="name">Native name or partial name.</param>
+        /// <returns>A list of countries or a List of one element.</returns>
         public static async Task<List<Country>> GetCountriesByNameContainsAsync(string name)
         {
             var request = new RestRequest(
@@ -70,8 +70,8 @@ namespace RESTCountries.Services
         /// <summary>
         /// Search by country full name.
         /// </summary>
-        /// <param name="fullName">The fullName<see cref="string"/>Full name of the country.</param>
-        /// <returns>The <see cref="Task{Country}"/>Country wich full name is provided.</returns>
+        /// <param name="fullName">Full name of the country.</param>
+        /// <returns>The country which full name is provided.</returns>
         public static async Task<Country> GetCountryByFullNameAsync(string fullName)
         {
             var request = new RestRequest(
@@ -90,8 +90,8 @@ namespace RESTCountries.Services
         /// <summary>
         /// Search by ISO 3166-1 2-letter or 3-letter country code.
         /// </summary>
-        /// <param name="countryCode">The countryCode<see cref="string"/>ISO 3166-1 2-letter or 3-letter country code.</param>
-        /// <returns>The <see cref="Task{Country}"/>Country wich ISO 3166-1 code is provided.</returns>
+        /// <param name="countryCode">ISO 3166-1 2-letter or 3-letter country code.</param>
+        /// <returns>The country which ISO 3166-1 code is provided.</returns>
         public static async Task<Country> GetCountryByCodeAsync(string countryCode)
         {
             var request = new RestRequest(
@@ -110,8 +110,8 @@ namespace RESTCountries.Services
         /// <summary>
         /// Search by list of ISO 3166-1 2-letter or 3-letter country codes.
         /// </summary>
-        /// <param name="codes">The codes<see cref="string[]"/>A list of ISO 3166-1 2-letter or 3-letter country codes.</param>
-        /// <returns>The <see cref="Task{List{Country}}"/>Countries wich ISO 3166-1 codes is provided.</returns>
+        /// <param name="codes">A list of ISO 3166-1 2-letter or 3-letter country codes.</param>
+        /// <returns>Countries which ISO 3166-1 codes is provided.</returns>
         public static async Task<List<Country>> GetCountriesByCodesAsync(params string[] codes)
         {
             if (codes.Length == 0)
@@ -134,8 +134,8 @@ namespace RESTCountries.Services
         /// <summary>
         /// Search by ISO 4217 currency code.
         /// </summary>
-        /// <param name="currencyCode">The currencyCode<see cref="string"/>ISO 4217 currency code</param>
-        /// <returns>The <see cref="Task{List{Country}}"/>Countries using the corresponding currency to the ISO 4217 code.</returns>
+        /// <param name="currencyCode">ISO 4217 currency code.</param>
+        /// <returns>Countries using the corresponding currency.</returns>
         public static async Task<List<Country>> GetCountriesByCurrencyCodeAsync(string currencyCode)
         {
             var request = new RestRequest(
@@ -154,8 +154,8 @@ namespace RESTCountries.Services
         /// <summary>
         /// Search by ISO 639-1 language code.
         /// </summary>
-        /// <param name="languageCode">The languageCode<see cref="string"/>The ISO 639-1 language code.</param>
-        /// <returns>The <see cref="Task{List{Country}}"/>Country wich ISO 639-1 language code is provided.</returns>
+        /// <param name="languageCode">ISO 639-1 language code.</param>
+        /// <returns>The country which ISO 639-1 language code is provided.</returns>
         public static async Task<List<Country>> GetCountriesByLanguageCodeAsync(string languageCode)
         {
             var request = new RestRequest(
@@ -174,8 +174,8 @@ namespace RESTCountries.Services
         /// <summary>
         /// Search by capital city.
         /// </summary>
-        /// <param name="capitalCity">The capitalCity<see cref="string"/>Capital city name.</param>
-        /// <returns>The <see cref="Task{Country}"/>Country wich capital city name is provided.</returns>
+        /// <param name="capitalCity">Capital city name.</param>
+        /// <returns>The country which capital city name is provided.</returns>
         public static async Task<Country> GetCountriesByCapitalCityAsync(string capitalCity)
         {
             var request = new RestRequest(
@@ -194,8 +194,8 @@ namespace RESTCountries.Services
         /// <summary>
         /// Search by calling code.
         /// </summary>
-        /// <param name="callingCode">The callingCode<see cref="string"/>The calling code.</param>
-        /// <returns>The <see cref="Task{List{Country}}"/>Country or countries using the calling code.</returns>
+        /// <param name="callingCode">Calling code.</param>
+        /// <returns>The country or countries using the calling code.</returns>
         public static async Task<List<Country>> GetCountriesByCallingcodeAsync(string callingCode)
         {
             var request = new RestRequest(
@@ -214,8 +214,8 @@ namespace RESTCountries.Services
         /// <summary>
         /// Search by continent: Africa, Americas, Asia, Europe, Oceania.
         /// </summary>
-        /// <param name="continent">The continent<see cref="string"/>The continent name.</param>
-        /// <returns>The <see cref="Task{List{Country}}"/>Countries wich is in the continent.</returns>
+        /// <param name="continent">Continent name.</param>
+        /// <returns>Countries which is in the continent.</returns>
         public static async Task<List<Country>> GetCountriesByContinentAsync(string continent)
         {
             var request = new RestRequest(
@@ -233,22 +233,22 @@ namespace RESTCountries.Services
 
         /// <summary>
         /// Search by regional bloc:
-        /// EU(European Union)
-        /// EFTA(European Free Trade Association)
-        /// CARICOM(Caribbean Community)
-        /// PA(Pacific Alliance)
-        /// AU(African Union)
-        /// USAN(Union of South American Nations)
-        /// EEU(Eurasian Economic Union)
-        /// AL(Arab League)
-        /// ASEAN(Association of Southeast Asian Nations)
-        /// CAIS(Central American Integration System)
-        /// CEFTA(Central European Free Trade Agreement)
-        /// NAFTA(North American Free Trade Agreement)
-        /// SAARC(South Asian Association for Regional Cooperation)
+        /// <para>- EU(European Union)</para>
+        /// <para>- EFTA(European Free Trade Association)</para>
+        /// <para>- CARICOM(Caribbean Community)</para>
+        /// <para>- PA(Pacific Alliance)</para>
+        /// <para>- AU(African Union)</para>
+        /// <para>- USAN(Union of South American Nations)</para>
+        /// <para>- EEU(Eurasian Economic Union)</para>
+        /// <para>- AL(Arab League)</para>
+        /// <para>- ASEAN(Association of Southeast Asian Nations)</para>
+        /// <para>- CAIS(Central American Integration System)</para>
+        /// <para>- CEFTA(Central European Free Trade Agreement)</para>
+        /// <para>- NAFTA(North American Free Trade Agreement)</para>
+        /// <para>- SAARC(South Asian Association for Regional Cooperation)</para>
         /// </summary>
-        /// <param name="regionalBloc">The regionalBloc<see cref="string"/>The regional bloc(eg: EU).</param>
-        /// <returns>The <see cref="Task{List{Country}}"/>Countries wich is in the regional bloc.</returns>
+        /// <param name="regionalBloc">Regional bloc(eg: EU).</param>
+        /// <returns>Countries which is in the regional bloc.</returns>
         public static async Task<List<Country>> GetCountriesByRegionalBlocAsync(string regionalBloc)
         {
             var request = new RestRequest(
