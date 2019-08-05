@@ -130,5 +130,25 @@ namespace RESTCountries.Services
             }
             throw new CountryNotFoundException("codes", queryParams);
         }
+
+        /// <summary>
+        /// Search by ISO 4217 currency code.
+        /// </summary>
+        /// <param name="currencyCode">The currencyCode<see cref="string"/>ISO 4217 currency code</param>
+        /// <returns>The <see cref="Task{List{Country}}"/>Countries using the corresponding currency to the ISO 4217 code.</returns>
+        public static async Task<List<Country>> GetCountriesByCurrencyCodeAsync(string currencyCode)
+        {
+            var request = new RestRequest(
+                $"{RESTCOUNTRIES_BASE_URI}{COUNTRY_BY_CURRENCYCODE}{currencyCode}",
+                Method.GET,
+                DataFormat.Json);
+            IRestResponse response = await client.ExecuteGetTaskAsync(request);
+            if (response.IsSuccessful && response.StatusCode.HasFlag(HttpStatusCode.OK))
+            {
+                JArray jsonArray = JArray.Parse(response.Content);
+                return jsonArray.ToObject<List<Country>>();
+            }
+            throw new CountryNotFoundException("currencycode", currencyCode);
+        }
     }
 }
