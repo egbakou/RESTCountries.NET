@@ -5,7 +5,7 @@ This is a .NET wrapper library around the API provided by REST Countries https:/
 ## Setup
 
 - Available on NuGet: https://www.nuget.org/packages/RESTCountries.NET/ [![NuGet](https://img.shields.io/nuget/v/RESTCountries.NET.svg?label=NuGet)](https://www.nuget.org/packages/RESTCountries.NET/)
-- Install into your .NET project.
+- Install into your .NET project(.NET Standard, .NET Core, Xamarin, etc).
 
 ## Note
 
@@ -86,7 +86,7 @@ You can use `var` instead of explicit types. I use explicit types to show you th
 
 ```csharp
 // Search by calling code
-List<Country> result = await RESTCountriesAPI.GetCountriesByCallingcodeAsync(string callingCode);
+List<Country> result = await RESTCountriesAPI.GetCountriesByCallingCodeAsync(string callingCode);
 ```
 
 -  Search by continent: Africa, Americas, Asia, Europe, Oceania.

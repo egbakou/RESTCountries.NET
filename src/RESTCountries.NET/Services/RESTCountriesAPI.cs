@@ -196,7 +196,7 @@ namespace RESTCountries.Services
         /// </summary>
         /// <param name="callingCode">Calling code.</param>
         /// <returns>The country or countries using the calling code.</returns>
-        public static async Task<List<Country>> GetCountriesByCallingcodeAsync(string callingCode)
+        public static async Task<List<Country>> GetCountriesByCallingCodeAsync(string callingCode)
         {
             var request = new RestRequest(
                 $"{RESTCOUNTRIES_BASE_URI}{COUNTRY_BY_CALLINGCODE}{callingCode}",
