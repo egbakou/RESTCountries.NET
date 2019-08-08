@@ -176,7 +176,7 @@ namespace RESTCountries.Services
         /// </summary>
         /// <param name="capitalCity">Capital city name.</param>
         /// <returns>The country which capital city name is provided.</returns>
-        public static async Task<Country> GetCountriesByCapitalCityAsync(string capitalCity)
+        public static async Task<Country> GetCountryByCapitalCityAsync(string capitalCity)
         {
             var request = new RestRequest(
                 $"{RESTCOUNTRIES_BASE_URI}{COUNTRY_BY_CAPITALCITY}{capitalCity}",
