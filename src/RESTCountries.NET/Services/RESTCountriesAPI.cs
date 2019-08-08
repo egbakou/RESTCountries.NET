@@ -28,7 +28,7 @@ namespace RESTCountries.Services
         private static readonly RestClient client = new RestClient();
 
         /// <summary>
-        /// The Get all countries.
+        /// Get all countries.
         /// </summary>
         /// <returns>All countries.</returns>
         public static async Task<List<Country>> GetAllCountriesAsync()
