@@ -57,7 +57,7 @@ namespace RESTCountries.Models
         public string Pt { get; set; }
 
         /// <summary>
-        /// Country name translated in Dutch, Flemish(Nederlands) language
+        /// Country name translated in Dutch language
         /// </summary>
         [JsonProperty("nl")]
         public string Nl { get; set; }
