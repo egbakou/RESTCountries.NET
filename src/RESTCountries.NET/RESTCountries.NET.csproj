@@ -6,7 +6,7 @@
     <RootNamespace>RESTCountries.NET</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Kodjo Laurent Egbakou</Authors>
-    <Description>.NET wrapper library around the API provided by REST Countries https://restcountries.eu</Description>
+    <Description>.NET wrapper library around the API provided by REST Countries https://restcountries.eu. Get information about countries, Get all countries, Apply filters to retrieve what you need.</Description>
     <PackageProjectUrl>https://github.com/egbakou/RESTCountries.NET</PackageProjectUrl>
     <RepositoryUrl>https://github.com/egbakou/RESTCountries.NET</RepositoryUrl>
     <PackageIconUrl>https://raw.githubusercontent.com/egbakou/logos/master/RESTCountries.NET/logo.png?raw=true</PackageIconUrl>

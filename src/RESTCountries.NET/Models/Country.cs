@@ -153,7 +153,7 @@ namespace RESTCountries.Models
         public IList<RegionalBloc> RegionalBlocs { get; set; }
 
         /// <summary>
-        /// Gets or sets the Cioc
+        /// Gets or sets the Cioc(International Olympic Committee Code)
         /// </summary>
         [JsonProperty("cioc")]
         public string Cioc { get; set; }
