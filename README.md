@@ -103,7 +103,23 @@ List<Country> result = await RESTCountriesAPI.GetCountriesByContinentAsync(strin
 List<Country> result = await RESTCountriesAPI.GetCountriesByRegionalBlocAsync(string regionalBloc);
 ```
 
-EU (European Union), EFTA (European Free Trade Association), CARICOM (Caribbean Community), PA (Pacific Alliance), AU (African Union), USAN (Union of South American Nations), EEU (Eurasian Economic Union), AL (Arab League), ASEAN (Association of Southeast Asian Nations), CAIS (Central American Integration System), CEFTA (Central European Free Trade Agreement), NAFTA (North American Free Trade Agreement), SAARC (South Asian Association for Regional Cooperation).
+**EU** (European Union), **EFTA** (European Free Trade Association), **CARICOM** (Caribbean Community), **PA** (Pacific Alliance), **AU** (African Union), **USAN** (Union of South American Nations), **EEU** (Eurasian Economic Union), **AL** (Arab League), **ASEAN** (Association of Southeast Asian Nations), **CAIS** (Central American Integration System), **CEFTA** (Central European Free Trade Agreement), **NAFTA** (North American Free Trade Agreement), **SAARC** (South Asian Association for Regional Cooperation).
+
+## Apply filters
+
+```csharp
+// Get all countries in Spanish language
+var countries = await RESTCountriesAPI.GetAllCountriesAsync();
+List<string> countriesInSpanish = countries.Select(c => c.Translations.Es).ToList();
+
+// Get Europe countries in French language
+var europeCountries = await RESTCountriesAPI.GetCountriesByContinentAsync("Europe"); ;
+List<string> europeCountriesInFrench = europeCountries.Select(c => c.Translations.Fr).ToList();
+
+// Fell free to aplly filters 🤓
+```
+
+
 
 ## Country class
 
