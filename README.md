@@ -4,7 +4,7 @@ This is a .NET wrapper library around the API provided by REST Countries https:/
 
 ## Setup
 
-- Available on NuGet: https://www.nuget.org/packages/RESTCountries.NET/ [![NuGet](https://img.shields.io/nuget/v/RESTCountries.NET.svg?label=NuGet)](https://www.nuget.org/packages/RESTCountries.NET/)
+- Available on NuGet: https://www.nuget.org/packages/RESTCountries.NET/ [![NuGet](https://img.shields.io/nuget/v/RESTCountries.NET.svg?label=NuGet)](https://www.nuget.org/packages/RESTCountries.NET/) ![NuGet](https://img.shields.io/nuget/dt/RESTCountries.NET.svg)
 - Install into your .NET project(.NET Standard, .NET Core, Xamarin, etc).
 
 ## Note
@@ -200,7 +200,9 @@ public class Country
 }
 ```
 
+## Credits
 
+Thanks to Fayder Florez for developing [REST Countries API](https://github.com/fayder/restcountries).
 
 ## Created by: Kodjo Laurent Egbakou
 
