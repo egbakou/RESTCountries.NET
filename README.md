@@ -5,13 +5,13 @@ This is a .NET wrapper library around the API provided by REST Countries https:/
 ## Setup
 
 - Available on NuGet: https://www.nuget.org/packages/RESTCountries.NET/ [![NuGet](https://img.shields.io/nuget/v/RESTCountries.NET.svg?label=NuGet)](https://www.nuget.org/packages/RESTCountries.NET/) ![NuGet](https://img.shields.io/nuget/dt/RESTCountries.NET.svg)
-- Install into your .NET project(.NET Standard, .NET Core, Xamarin, etc).
+- Install it into your .NET project(.NET Standard, .NET Core, Xamarin, WPF, etc).
 
 ## Note
 
 Add `namespace` `RESTCountries.Services` and call `RESTCountriesAPI` class to access to all methods.
 
-Each method return an object of type [`Country`](https://github.com/egbakou/RESTCountries.NET/blob/master/src/RESTCountries.NET/Models/Country.cs) or a `List` of [`Country`](https://github.com/egbakou/RESTCountries.NET/blob/master/src/RESTCountries.NET/Models/Country.cs). You can apply filters on the returned value to retrieve what you need. 
+Each method returns an object of type [`Country`](https://github.com/egbakou/RESTCountries.NET/blob/master/src/RESTCountries.NET/Models/Country.cs) or a `List` of [`Country`](https://github.com/egbakou/RESTCountries.NET/blob/master/src/RESTCountries.NET/Models/Country.cs). You can apply filters on the returned value to retrieve what you need. 
 
 Example:
 
