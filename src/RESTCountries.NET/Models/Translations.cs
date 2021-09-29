@@ -42,7 +42,7 @@ namespace RESTCountries.Models
         /// Country name translated in Breton language
         /// </summary>
         [JsonProperty("br")]
-        public string br { get; set; }
+        public string Br { get; set; }
 
         /// <summary>
         /// Country name translated in Portuguese language.

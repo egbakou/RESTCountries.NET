@@ -138,7 +138,7 @@ namespace RESTCountries.Models
         /// Gets or sets the Flag
         /// </summary>
         [JsonProperty("flag")]
-        public string Flag { get; set; }
+        public Flag Flag { get; set; }
 
         /// <summary>
         /// Gets or sets the Regional Blocs
