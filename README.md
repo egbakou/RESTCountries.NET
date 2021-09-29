@@ -1,6 +1,6 @@
 # <img src="art/icon.png" alt="Icon" width="60" />RESTCountries.NET 
 
-This is a .NET wrapper library around the API provided by REST Countries https://restcountries.eu (Get information about countries via a RESTful API).
+This is a .NET wrapper library around the API provided by REST Countries https://restcountries.com (Get information about countries via a RESTful API).
 
 ## Setup
 
@@ -189,8 +189,8 @@ public class Country
     // Gets or sets the Translations
     public Translations Translations { get; set; }
 
-    // Gets or sets the Flag
-    public string Flag { get; set; }
+    // Gets or sets the Flag (Svg and PNG format)
+    public Flag Flag { get; set; }
 
     // Gets or sets the Regional Blocs
     public IList<RegionalBloc> RegionalBlocs { get; set; }
@@ -200,13 +200,9 @@ public class Country
 }
 ```
 
-## Credits
-
-Thanks to Fayder Florez for developing [REST Countries API](https://github.com/fayder/restcountries).
-
 ## Created by: Kodjo Laurent Egbakou
 
-- LinkedIn: [Kodjo Laurent Egbakou](https://www.linkedin.com/in/laurentegbakou/)
+- LinkedIn: [Laurent Egbakou](https://www.linkedin.com/in/laurentegbakou/)
 - Twitter: [@lioncoding](https://twitter.com/lioncoding)
 
 ## License
