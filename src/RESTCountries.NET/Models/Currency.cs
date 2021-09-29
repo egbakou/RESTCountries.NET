@@ -1,10 +1,4 @@
-﻿/*
-Currency.cs
-04/08/2019 21:42:48
-Kodjo Laurent Egbakou
-*/
-
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace RESTCountries.Models
 {

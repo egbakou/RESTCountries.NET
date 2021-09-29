@@ -1,10 +1,4 @@
-﻿/*
-CountryNotFoundException.cs
-04/08/2019 21:44:30
-Kodjo Laurent Egbakou
-*/
-
-using System;
+﻿using System;
 
 namespace AppREstCountries.Helpers
 {

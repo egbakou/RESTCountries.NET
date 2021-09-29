@@ -1,10 +1,4 @@
-﻿/*
-RegionalBloc.cs
-04/08/2019 21:43:11
-Kodjo Laurent Egbakou
-*/
-
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
 namespace RESTCountries.Models
