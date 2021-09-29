@@ -16,7 +16,7 @@
         public static string COUNTRY_BY_LANGUAGECODE = "lang/";
         public static string COUNTRY_BY_CAPITALCITY = "capital/";
         public static string COUNTRY_BY_CALLINGCODE = "callingcode/";
-        public static string COUNTRY_BY_CONTINENT = "region/";
+        public static string COUNTRY_BY_CONTINENT = "continent/";
         public static string COUNTRY_BY_REGIONALBLOC = "regionalbloc/";
     }
 }
