@@ -1,10 +1,4 @@
-﻿/*
-RESTCountriesAPI.cs
-04/08/2019 21:51:32
-Kodjo Laurent Egbakou
-*/
-
-using AppREstCountries.Helpers;
+﻿using AppREstCountries.Helpers;
 using Newtonsoft.Json.Linq;
 using RESTCountries.Models;
 using RestSharp;
@@ -18,7 +12,7 @@ namespace RESTCountries.Services
 {
     /// <summary>
     /// Defines a <see cref="RESTCountriesAPI" />.
-    ///<para>Get information about countries via a RESTful API(Current version: 2.0.5)</para>
+    ///<para>Get information about countries via a RESTful API.</para>
     /// </summary>
     public class RESTCountriesAPI
     {
@@ -37,13 +31,13 @@ namespace RESTCountries.Services
                 $"{RESTCOUNTRIES_BASE_URI}{ALL_COUNTRY_SIFFIX_URI}",
                 Method.GET,
                 DataFormat.Json);
-            IRestResponse response = await client.ExecuteGetTaskAsync(request);
+            IRestResponse response = await client.ExecuteGetAsync(request);
             if (response.IsSuccessful && response.StatusCode.HasFlag(HttpStatusCode.OK))
             {
                 JArray jsonArray = JArray.Parse(response.Content);
                 return jsonArray.ToObject<List<Country>>();
             }
-            throw new Exception("No country found. Please check if https://restcountries.eu is avialable.");
+            throw new Exception("No country found. Please check if https://restcountries.com is available.");
         }
 
         /// <summary>
@@ -58,7 +52,7 @@ namespace RESTCountries.Services
                 $"{RESTCOUNTRIES_BASE_URI}{COUNTRY_BY_NAME_SIFFIX_URI}{name}",
                 Method.GET,
                 DataFormat.Json);
-            IRestResponse response = await client.ExecuteGetTaskAsync(request);
+            IRestResponse response = await client.ExecuteGetAsync(request);
             if (response.IsSuccessful && response.StatusCode.HasFlag(HttpStatusCode.OK))
             {
                 JArray jsonArray = JArray.Parse(response.Content);
@@ -78,7 +72,7 @@ namespace RESTCountries.Services
                 $"{RESTCOUNTRIES_BASE_URI}{COUNTRY_BY_NAME_SIFFIX_URI}{fullName}{COUNTRY_BY_FULLNAME_SUFFIX_URI}",
                 Method.GET,
                 DataFormat.Json);
-            IRestResponse response = await client.ExecuteGetTaskAsync(request);
+            IRestResponse response = await client.ExecuteGetAsync(request);
             if (response.IsSuccessful && response.StatusCode.HasFlag(HttpStatusCode.OK))
             {
                 JArray jsonArray = JArray.Parse(response.Content);
@@ -98,7 +92,7 @@ namespace RESTCountries.Services
                 $"{RESTCOUNTRIES_BASE_URI}{COUNTRY_BY_CODE_SIFFIX_URI}{countryCode}",
                 Method.GET,
                 DataFormat.Json);
-            IRestResponse response = await client.ExecuteGetTaskAsync(request);
+            IRestResponse response = await client.ExecuteGetAsync(request);
             if (response.IsSuccessful && response.StatusCode.HasFlag(HttpStatusCode.OK))
             {
                 JObject jsonObject = JObject.Parse(response.Content);
@@ -122,7 +116,7 @@ namespace RESTCountries.Services
                 $"{RESTCOUNTRIES_BASE_URI}{COUNTRY_BY_LISTOFCODES_SIFFIX_URI}{queryParams}",
                 Method.GET,
                 DataFormat.Json);
-            IRestResponse response = await client.ExecuteGetTaskAsync(request);
+            IRestResponse response = await client.ExecuteGetAsync(request);
             if (response.IsSuccessful && response.StatusCode.HasFlag(HttpStatusCode.OK))
             {
                 JArray jsonArray = JArray.Parse(response.Content);
@@ -142,7 +136,7 @@ namespace RESTCountries.Services
                 $"{RESTCOUNTRIES_BASE_URI}{COUNTRY_BY_CURRENCYCODE}{currencyCode}",
                 Method.GET,
                 DataFormat.Json);
-            IRestResponse response = await client.ExecuteGetTaskAsync(request);
+            IRestResponse response = await client.ExecuteGetAsync(request);
             if (response.IsSuccessful && response.StatusCode.HasFlag(HttpStatusCode.OK))
             {
                 JArray jsonArray = JArray.Parse(response.Content);
@@ -162,7 +156,7 @@ namespace RESTCountries.Services
                 $"{RESTCOUNTRIES_BASE_URI}{COUNTRY_BY_LANGUAGECODE}{languageCode}",
                 Method.GET,
                 DataFormat.Json);
-            IRestResponse response = await client.ExecuteGetTaskAsync(request);
+            IRestResponse response = await client.ExecuteGetAsync(request);
             if (response.IsSuccessful && response.StatusCode.HasFlag(HttpStatusCode.OK))
             {
                 JArray jsonArray = JArray.Parse(response.Content);
@@ -182,7 +176,7 @@ namespace RESTCountries.Services
                 $"{RESTCOUNTRIES_BASE_URI}{COUNTRY_BY_CAPITALCITY}{capitalCity}",
                 Method.GET,
                 DataFormat.Json);
-            IRestResponse response = await client.ExecuteGetTaskAsync(request);
+            IRestResponse response = await client.ExecuteGetAsync(request);
             if (response.IsSuccessful && response.StatusCode.HasFlag(HttpStatusCode.OK))
             {
                 JArray jsonArray = JArray.Parse(response.Content);
@@ -202,7 +196,7 @@ namespace RESTCountries.Services
                 $"{RESTCOUNTRIES_BASE_URI}{COUNTRY_BY_CALLINGCODE}{callingCode}",
                 Method.GET,
                 DataFormat.Json);
-            IRestResponse response = await client.ExecuteGetTaskAsync(request);
+            IRestResponse response = await client.ExecuteGetAsync(request);
             if (response.IsSuccessful && response.StatusCode.HasFlag(HttpStatusCode.OK))
             {
                 JArray jsonArray = JArray.Parse(response.Content);
@@ -222,7 +216,7 @@ namespace RESTCountries.Services
                 $"{RESTCOUNTRIES_BASE_URI}{COUNTRY_BY_CONTINENT}{continent}",
                 Method.GET,
                 DataFormat.Json);
-            IRestResponse response = await client.ExecuteGetTaskAsync(request);
+            IRestResponse response = await client.ExecuteGetAsync(request);
             if (response.IsSuccessful && response.StatusCode.HasFlag(HttpStatusCode.OK))
             {
                 JArray jsonArray = JArray.Parse(response.Content);
@@ -255,7 +249,7 @@ namespace RESTCountries.Services
                 $"{RESTCOUNTRIES_BASE_URI}{COUNTRY_BY_REGIONALBLOC}{regionalBloc}",
                 Method.GET,
                 DataFormat.Json);
-            IRestResponse response = await client.ExecuteGetTaskAsync(request);
+            IRestResponse response = await client.ExecuteGetAsync(request);
             if (response.IsSuccessful && response.StatusCode.HasFlag(HttpStatusCode.OK))
             {
                 JArray jsonArray = JArray.Parse(response.Content);
