@@ -1,18 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <AssemblyName>RESTCountries.NET</AssemblyName>
     <RootNamespace>RESTCountries.NET</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Kodjo Laurent Egbakou</Authors>
-    <Description>.NET wrapper library around the API provided by REST Countries https://restcountries.eu. Get information about countries, Get all countries, Apply filters to retrieve what you need.</Description>
+    <Description>.NET wrapper library around the API provided by REST Countries https://restcountries.com. Get information about countries, Get all countries, Apply filters to retrieve what you need.</Description>
     <PackageProjectUrl>https://github.com/egbakou/RESTCountries.NET</PackageProjectUrl>
     <RepositoryUrl>https://github.com/egbakou/RESTCountries.NET</RepositoryUrl>
     <PackageIconUrl>https://raw.githubusercontent.com/egbakou/logos/master/RESTCountries.NET/logo.png?raw=true</PackageIconUrl>
-    <Version>1.0.0</Version>
+    <Version>2.0.0</Version>
     <PackageReleaseNotes>See: https://github.com/egbakou/RESTCountries.NET </PackageReleaseNotes>
-    <PackageTags>Country-Info, World, Info, Restcountries, Country-Data, Rest</PackageTags>
+    <PackageTags>Country-Info, World, Info, RestCountries, Country-Data, Rest</PackageTags>
     <Copyright>Copyright 2019</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <NeutralLanguage>en</NeutralLanguage>
