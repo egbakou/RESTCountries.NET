@@ -111,7 +111,7 @@ namespace RESTCountries.Services
             if (codes.Length == 0)
                 throw new Exception("Parameter(s) can't not be null for argument 'codes'");
 
-            string queryParams = string.Join(";", codes);
+            string queryParams = string.Join(",", codes);
             var request = new RestRequest(
                 $"{RESTCOUNTRIES_BASE_URI}{COUNTRY_BY_LISTOFCODES_SIFFIX_URI}{queryParams}",
                 Method.GET,
