@@ -6,7 +6,7 @@ using Xunit;
 
 namespace RESTCountries.NET.Tests
 {
-    public class UnitTests
+    public class RESTCountries
     {
         [Fact]
         public async void GetAllCountriesAsync_Should_Return_List()
