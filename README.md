@@ -1,15 +1,14 @@
 # <img src="art/icon.png" alt="Icon" width="60" />RESTCountries.NET 
-
 This is a .NET wrapper library around the API provided by REST Countries https://restcountries.com (Get information about countries via a RESTful API).
 
 ## Setup
 
 - Available on NuGet: https://www.nuget.org/packages/RESTCountries.NET/ [![NuGet](https://img.shields.io/nuget/v/RESTCountries.NET.svg?label=NuGet)](https://www.nuget.org/packages/RESTCountries.NET/) ![NuGet](https://img.shields.io/nuget/dt/RESTCountries.NET.svg)
-- Install it into your .NET project(.NET Standard, .NET Core, Xamarin, WPF, etc).
+- Install it into your .NET project(.NET Standard, .NET Core, Xamarin, WPF, etc.).
 
 ## Note
 
-Add `namespace` `RESTCountries.Services` and call `RESTCountriesAPI` class to access to all methods.
+Add `namespace` `RESTCountries.Services` and call `RESTCountriesAPI` class to access all methods.
 
 Each method returns an object of type [`Country`](https://github.com/egbakou/RESTCountries.NET/blob/master/src/RESTCountries.NET/Models/Country.cs) or a `List` of [`Country`](https://github.com/egbakou/RESTCountries.NET/blob/master/src/RESTCountries.NET/Models/Country.cs). You can apply filters on the returned value to retrieve what you need. 
 
@@ -18,7 +17,7 @@ Example:
 - Just get the name and capital city of all countries.
 - Get country name in French language or Spanish language.
 
-Default language for country name is English, but you can also get the name in other languages such as: `de`(German language),  `es`(Spanish language), `fr`(French language),  `ja`(Japanese language), `it`(Italian language), `br`(Breton language), `pt`(Portuguese language), `nl`(Dutch language), `hr`(Croatian language) and `fa`(Persian language).
+The default language for the country name is English, but you can also get the name in other languages such as: `de`(German language),  `es`(Spanish language), `fr`(French language),  `ja`(Japanese language), `it`(Italian language), `br`(Breton language), `pt`(Portuguese language), `nl`(Dutch language), `hr`(Croatian language) and `fa`(Persian language).
 
 ## Usage
 
@@ -36,7 +35,7 @@ List<Country> countries = await RESTCountriesAPI.GetAllCountriesAsync();
 List<Country> result = await RESTCountriesAPI.GetCountriesByNameContainsAsync(string name);
 ```
 
-If partial name, this method could return a list of countries. Else a List of one element.
+If partial name, this method could return a list of countries,otherwise a List of one element.
 
 - Search by country full name.
 
@@ -45,14 +44,14 @@ If partial name, this method could return a list of countries. Else a List of on
 Country result = await RESTCountriesAPI.GetCountryByFullNameAsync(string fullName);
 ```
 
--  Search by ISO 3166-1 2-letter or 3-letter country code.
+- Search by ISO 3166-1 2-letter or 3-letter country code.
 
 ```csharp
 // Search by list of ISO 3166-1 2-letter or 3-letter country codes
 Country result = await RESTCountriesAPI.GetCountryByCodeAsync(string countryCode);
 ```
 
--  Search by list of ISO 3166-1 2-letter or 3-letter country codes.
+- Search by a list of ISO 3166-1 2-letter or 3-letter country codes.
 
 ```csharp
 // Search by list of ISO 3166-1 2-letter or 3-letter country codes
@@ -73,7 +72,7 @@ List<Country> result = await RESTCountriesAPI.GetCountriesByCurrencyCodeAsync(st
 List<Country> result = await RESTCountriesAPI.GetCountriesByLanguageCodeAsync(string languageCode);
 ```
 
--  Search by capital city.
+- Search by the capital city.
 
 ```csharp
 // Search by capital city
@@ -89,7 +88,7 @@ You can use `var` instead of explicit types. I use explicit types to show you th
 List<Country> result = await RESTCountriesAPI.GetCountriesByCallingCodeAsync(string callingCode);
 ```
 
--  Search by continent: Africa, Americas, Asia, Europe, Oceania.
+- Search by continent: Africa, Americas, Asia, Europe, Oceania.
 
 ```csharp
 //  Search by continent: Africa, Americas, Asia, Europe, Oceania
@@ -116,58 +115,56 @@ List<string> countriesInSpanish = countries.Select(c => c.Translations.Es).ToLis
 var europeCountries = await RESTCountriesAPI.GetCountriesByContinentAsync("Europe"); ;
 List<string> europeCountriesInFrench = europeCountries.Select(c => c.Translations.Fr).ToList();
 
-// Fell free to aplly filters 🤓
+// Fell free to apply filters 🤓
 ```
-
-
 
 ## Country class
 
 ```csharp
 public class Country
-{	
+{    
     // Gets or sets the Name
     public string Name { get; set; }
-  
+
     // Gets or sets the Top Level Domain
     public IList<string> TopLevelDomain { get; set; }
-  
+
     // Gets or sets the Alpha2 Code
     public string Alpha2Code { get; set; }
-  
+
     // Gets or sets the Alpha3 Code
     public string Alpha3Code { get; set; }
-  
+
     // Gets or sets the Calling Codes
     public IList<string> CallingCodes { get; set; }
-  
+
     // Gets or sets the Capital City
     public string Capital { get; set; }
-  
+
     // Gets or sets the Alt Spellings
     public IList<string> AltSpellings { get; set; }    
-   
+
     // Gets or sets the Region
     public string Region { get; set; }
-  
+
     // Gets or sets the Subregion
     public string Subregion { get; set; }
-   
+
     // Gets or sets the Population
     public int Population { get; set; }
-  
+
     // Gets or sets the Latlng(Latitude and Longitude)
     public IList<double> Latlng { get; set; }
-   
+
     // Gets or sets the Demonym
     public string Demonym { get; set; }
-   
+
     // Gets or sets the Area
     public double? Area { get; set; }
-  
+
     // Gets or sets the Gini
     public double? Gini { get; set; }
-   
+
     // Gets or sets the Timezones
     public IList<string> Timezones { get; set; }
 
