@@ -14,7 +14,7 @@ namespace RESTCountries.Services
     /// Defines a <see cref="RESTCountriesAPI" />.
     ///<para>Get information about countries via a RESTful API.</para>
     /// </summary>
-    public class RESTCountriesAPI
+    public static class RESTCountriesAPI
     {
         /// <summary>
         /// Defines a RestClient static object.
@@ -212,17 +212,8 @@ namespace RESTCountries.Services
         /// <returns>Countries which is in the continent.</returns>
         public static async Task<List<Country>> GetCountriesByContinentAsync(string continent)
         {
-            var request = new RestRequest(
-                $"{RESTCOUNTRIES_BASE_URI}{COUNTRY_BY_CONTINENT}{continent}",
-                Method.GET,
-                DataFormat.Json);
-            IRestResponse response = await client.ExecuteGetAsync(request);
-            if (response.IsSuccessful && response.StatusCode.HasFlag(HttpStatusCode.OK))
-            {
-                JArray jsonArray = JArray.Parse(response.Content);
-                return jsonArray.ToObject<List<Country>>();
-            }
-            throw new CountryNotFoundException("continent", continent);
+            var allCountries = await GetAllCountriesAsync();
+            return allCountries.Where(c => string.Equals(c.Region, continent, StringComparison.OrdinalIgnoreCase)).ToList();
         }
 
         /// <summary>
