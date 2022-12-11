@@ -23,6 +23,10 @@ Documentation of the previous versions can be found [here](https://github.com/eg
 | Start of the week                           |           ❌           |        ✔️        |
 | Mobile phone prefix information             |           ❌           |        ✔️        |
 
+## Benchmark
+
+![](art/benchmark.png)
+
 ## Note
 
 Add `namespace` `RESTCountries.NET.Services` and call `RestCountriesService` class to access all methods.
