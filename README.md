@@ -3,6 +3,11 @@ A completely offline library to get information about countries.
 
 Documentation of the previous versions can be found [here](https://github.com/egbakou/RESTCountries.NET/blob/main/LEGACY_README_V2.md).
 
+## Setup
+
+- Available on NuGet: https://www.nuget.org/packages/RESTCountries.NET/ [![NuGet](https://img.shields.io/nuget/v/RESTCountries.NET.svg?label=NuGet)](https://www.nuget.org/packages/RESTCountries.NET/) ![NuGet](https://img.shields.io/nuget/dt/RESTCountries.NET.svg)
+- Install it into your dotnet project(.NET Standard, .NET Core, .NET, Maui, WPF, etc.).
+
 ## Version 3 features
 
 - Offline support 
@@ -15,11 +20,6 @@ Documentation of the previous versions can be found [here](https://github.com/eg
 - Car information
 - Start of the week
 - Mobile phone prefix information
-
-## Setup
-
-- Available on NuGet: https://www.nuget.org/packages/RESTCountries.NET/ [![NuGet](https://img.shields.io/nuget/v/RESTCountries.NET.svg?label=NuGet)](https://www.nuget.org/packages/RESTCountries.NET/) ![NuGet](https://img.shields.io/nuget/dt/RESTCountries.NET.svg)
-- Install it into your dotnet project(.NET Standard, .NET Core, .NET, Maui, WPF, etc.).
 
 ## Note
 
