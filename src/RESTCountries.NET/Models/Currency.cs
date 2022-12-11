@@ -1,28 +1,22 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
-namespace RESTCountries.Models
+namespace RESTCountries.NET.Models
 {
     /// <summary>
-    /// Defines a <see cref="Currency" />
+    /// Currency class.
     /// </summary>
     public class Currency
     {
         /// <summary>
-        /// Gets or sets the curency code
+        /// The currency name.
         /// </summary>
-        [JsonProperty("code")]
-        public string Code { get; set; }
+        [JsonPropertyName("name")]
+        public string? Name { get; set; }
 
         /// <summary>
-        /// Gets or sets the currency name
+        /// The currency code.
         /// </summary>
-        [JsonProperty("name")]
-        public string Name { get; set; }
-
-        /// <summary>
-        /// Gets or sets the currency symbol
-        /// </summary>
-        [JsonProperty("symbol")]
-        public string Symbol { get; set; }
+        [JsonPropertyName("symbol")]
+        public string? Symbol { get; set; }
     }
 }
