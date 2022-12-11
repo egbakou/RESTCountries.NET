@@ -1,7 +1,7 @@
 # <img src="art/icon.png" alt="Icon" width="60" />RESTCountries.NET v3.0.0
 A completely offline library to get information about countries.
 
-Documentation of the previous versions can be found [here](LEGACY_README_V2.md).
+Documentation of the previous versions can be found [here](https://github.com/egbakou/RESTCountries.NET/blob/main/LEGACY_README_V2.md).
 
 ## Version 3 features
 
@@ -9,17 +9,17 @@ Documentation of the previous versions can be found [here](LEGACY_README_V2.md).
 
 - More translation languages
 - Country postal code with regex
-- Google map and OpenStreetMap location
+- Google Map and OpenStreetMap location
 - Country flag in unicode, png and svg format
-- Tim zones information
+- Time zones information
 - Car information
-- Start og the week
+- Start of the week
 - Mobile phone prefix information
 
 ## Setup
 
 - Available on NuGet: https://www.nuget.org/packages/RESTCountries.NET/ [![NuGet](https://img.shields.io/nuget/v/RESTCountries.NET.svg?label=NuGet)](https://www.nuget.org/packages/RESTCountries.NET/) ![NuGet](https://img.shields.io/nuget/dt/RESTCountries.NET.svg)
-- Install it into your .NET project(.NET Standard, .NET Core, .NET, Xamarin, Maui, WPF, etc.).
+- Install it into your dotnet project(.NET Standard, .NET Core, .NET, Maui, WPF, etc.).
 
 ## Note
 
@@ -32,7 +32,7 @@ Example:
 - Just get name and capital city of all countries.
 - Get country names in French language or Spanish language.
 
-The default language for the country name is English, but you can also get the name in other languages such as: Arabic, Breton, Czech, Welsh, German, Estonian, Finnish, French, Croatian, Hungarian, Italian, Japanese, Korean, Dutch, Persian, Polish, Russian, Slovak, Spanish, Swedish, Turkish, Urdu and Chinese.
+The default language for the country name is English, but you can also get the name in other languages such as: **Arabic, Breton, Czech, Welsh, German, Estonian, Finnish, French, Croatian, Hungarian, Italian, Japanese, Korean, Dutch, Persian, Polish, Russian, Slovak, Spanish, Swedish, Turkish, Urdu and Chinese**.
 
 ## Usage
 
@@ -63,7 +63,7 @@ Country? result = GetCountryByFullName("Brazil");
 
 ```csharp
 // Search by list of ISO 3166-1 2-letter or 3-letter country codes
-Country? result = RestCountriesService.GetCountryByCode("us") // or USA
+Country? result = RestCountriesService.GetCountryByCode("us"); // or USA
 ```
 
 - Search by  currency code, name or symbol
@@ -93,7 +93,7 @@ Here, you can choose the language you want. check out the the [`TranslationLangu
 
 ```csharp
 //  Get country names in French langauge
-List<string> result = RestCountriesService.GetAllCountriesNames(TranslationLanguage.French).ToList()
+List<string> result = RestCountriesService.GetAllCountriesNames(TranslationLanguage.French).ToList();
 ```
 
 ## Country class
@@ -269,6 +269,10 @@ public class Country
     public PostalCode? PostalCode { get; set; }
 }
 ```
+
+## Issues
+
+If you find an error in the data source, please create an issue on the restcountries.com repo available on GitLab(https://gitlab.com/amatos/rest-countries), where our local data comes from.
 
 ## Created by: Laurent Egbakou
 
