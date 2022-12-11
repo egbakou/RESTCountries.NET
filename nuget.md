@@ -64,7 +64,7 @@ Country? result = GetCountryByFullName("Brazil");
 - Search by Alpha-2 code or Alpha-3 code
 
 ```csharp
-// Search by list of ISO 3166-1 2-letter or 3-letter country codes
+// Search by country code
 Country? result = RestCountriesService.GetCountryByCode("us"); // or USA
 ```
 
