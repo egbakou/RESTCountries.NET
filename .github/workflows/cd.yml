@@ -33,18 +33,18 @@ jobs:
 
     - name: Build
       run: dotnet build --configuration Release
-      working-directory: ./src
-
+      working-directory: ./src/RESTCountries.NET
+      
     - name: Run unit tests
       run: dotnet test --configuration Release
-      working-directory: ./src
+      working-directory: ./tests/RESTCountries.NET.Tests
 
     - name: Generate nuget package
       run: dotnet pack --configuration Release -o nupkg
-      working-directory: ./src
+      working-directory: ./src/RESTCountries.NET
 
     - name: Publish nuget package
       run: find . -name *.nupkg -type f -print0 | xargs -0 -I pkg dotnet nuget push pkg -k $nuget_api_key -s "https://api.nuget.org/v3/index.json" --skip-duplicate
       env:
         nuget_api_key: ${{ secrets.NUGET_API_KEY }}
-      working-directory: ./src/nupkg
+      working-directory: ./src/RESTCountries.NET/nupkg
