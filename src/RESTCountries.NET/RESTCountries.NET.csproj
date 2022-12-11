@@ -33,6 +33,15 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<None Remove="Services\data.json" />
+	</ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Include="Services\data.json">
+			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
+		</EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
 		<None Include="..\..\nuget\readme.txt" PackagePath="readme.txt" Pack="true" />
 	</ItemGroup>
 
