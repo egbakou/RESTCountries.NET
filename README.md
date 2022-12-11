@@ -18,7 +18,6 @@ Documentation of the previous versions can be found [here](https://github.com/eg
 | Google Map and OpenStreetMap location       |           ❌           |        ✔️        |
 | Country flag in unicode, png and svg format | Unicode not supported |        ✔️        |
 | Time zones information                      |           ❌           |        ✔️        |
-| Time zones information                      |           ❌           |        ✔️        |
 | Car information                             |           ❌           |        ✔️        |
 | Start of the week                           |           ❌           |        ✔️        |
 | Mobile phone prefix information             |           ❌           |        ✔️        |
