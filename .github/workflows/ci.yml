@@ -28,8 +28,8 @@ jobs:
 
     - name: Build
       run: dotnet build --configuration Release
-      working-directory: ./src
+      working-directory: ./src/RESTCountries.NET
 
     - name: Run unit tests
       run: dotnet test --configuration Release
-      working-directory: ./src
+      working-directory: ./tests/RESTCountries.NET.Tests
