@@ -1,203 +1,276 @@
-# <img src="art/icon.png" alt="Icon" width="60" />RESTCountries.NET 
-This is a .NET wrapper library around the API provided by REST Countries https://restcountries.com (Get information about countries via a RESTful API).
+# <img src="art/icon.png" alt="Icon" width="60" />RESTCountries.NET v3.0.0
+A completely offline library to get information about countries.
+
+Documentation of the previous versions can be found [here](LEGACY_README_V2.md).
+
+## Version 3 features
+
+- Offline support 
+
+- More translation languages
+- Country postal code with regex
+- Google map and OpenStreetMap location
+- Country flag in unicode, png and svg format
+- Tim zones information
+- Car information
+- Start og the week
+- Mobile phone prefix information
 
 ## Setup
 
 - Available on NuGet: https://www.nuget.org/packages/RESTCountries.NET/ [![NuGet](https://img.shields.io/nuget/v/RESTCountries.NET.svg?label=NuGet)](https://www.nuget.org/packages/RESTCountries.NET/) ![NuGet](https://img.shields.io/nuget/dt/RESTCountries.NET.svg)
-- Install it into your .NET project(.NET Standard, .NET Core, Xamarin, WPF, etc.).
+- Install it into your .NET project(.NET Standard, .NET Core, .NET, Xamarin, Maui, WPF, etc.).
 
 ## Note
 
-Add `namespace` `RESTCountries.Services` and call `RESTCountriesAPI` class to access all methods.
+Add `namespace` `RESTCountries.NET.Services` and call `RestCountriesService` class to access all methods.
 
-Each method returns an object of type [`Country`](https://github.com/egbakou/RESTCountries.NET/blob/master/src/RESTCountries.NET/Models/Country.cs) or a `List` of [`Country`](https://github.com/egbakou/RESTCountries.NET/blob/master/src/RESTCountries.NET/Models/Country.cs). You can apply filters on the returned value to retrieve what you need. 
+Each method returns an object of type [`Country`](https://github.com/egbakou/RESTCountries.NET/blob/main/src/RESTCountries.NET/Models/Country.cs) or a `IEnumerable` of [`Country`](https://github.com/egbakou/RESTCountries.NET/blob/master/src/RESTCountries.NET/Models/Country.cs). You can apply filters on the returned value to retrieve what you need. 
 
 Example:
 
-- Just get the name and capital city of all countries.
-- Get country name in French language or Spanish language.
+- Just get name and capital city of all countries.
+- Get country names in French language or Spanish language.
 
-The default language for the country name is English, but you can also get the name in other languages such as: `de`(German language),  `es`(Spanish language), `fr`(French language),  `ja`(Japanese language), `it`(Italian language), `br`(Breton language), `pt`(Portuguese language), `nl`(Dutch language), `hr`(Croatian language) and `fa`(Persian language).
+The default language for the country name is English, but you can also get the name in other languages such as: Arabic, Breton, Czech, Welsh, German, Estonian, Finnish, French, Croatian, Hungarian, Italian, Japanese, Korean, Dutch, Persian, Polish, Russian, Slovak, Spanish, Swedish, Turkish, Urdu and Chinese.
 
 ## Usage
+
+> Note: The list is already ordered ascending by the country name. 
 
 - Get all countries.
 
 ```csharp
 // Get all countries
-List<Country> countries = await RESTCountriesAPI.GetAllCountriesAsync();
+IEnumerable<Country> countries = RestCountriesService.GetAllCountries();
 ```
 
-- Search by country name. It can be the native name or partial name.
+- Search by country name containing a "prefix"
 
 ```csharp
-// Search by country name
-List<Country> result = await RESTCountriesAPI.GetCountriesByNameContainsAsync(string name);
+// Search by country name containing "a" or "A"
+IEnumerable<Country> result = RestCountriesService.GetCountriesByNameContains("a");
 ```
-
-If partial name, this method could return a list of countries,otherwise a List of one element.
 
 - Search by country full name.
 
 ```csharp
 // Search by country full name
-Country result = await RESTCountriesAPI.GetCountryByFullNameAsync(string fullName);
+Country? result = GetCountryByFullName("Brazil");
 ```
 
 - Search by ISO 3166-1 2-letter or 3-letter country code.
 
 ```csharp
 // Search by list of ISO 3166-1 2-letter or 3-letter country codes
-Country result = await RESTCountriesAPI.GetCountryByCodeAsync(string countryCode);
+Country? result = RestCountriesService.GetCountryByCode("us") // or USA
 ```
 
-- Search by a list of ISO 3166-1 2-letter or 3-letter country codes.
+- Search by  currency code, name or symbol
 
 ```csharp
-// Search by list of ISO 3166-1 2-letter or 3-letter country codes
-List<Country> result = await RESTCountriesAPI.GetCountriesByCodesAsync(params string[] codes);
+// Search by currency code, name or symbol
+IEnumerable<Country> result = RestCountriesService.GetCountriesByCurrency("EUR"); // Or Euro or €
 ```
 
-- Search by ISO 4217 currency code.
+- Search by language(language 3 prefix or language name)
 
 ```csharp
-// Search by ISO 4217 currency code
-List<Country> result = await RESTCountriesAPI.GetCountriesByCurrencyCodeAsync(string currencyCode);
+// Search by language
+IEnumerable<Country> result = RestCountriesService.GetCountriesByLanguage("french"); // or fra
 ```
 
-- Search by ISO 639-1 language code.
+> You can use `var` instead of explicit types. I use explicit types to show you the return type of each method.
+>
+
+- Get only country names
 
 ```csharp
-// Search by ISO 639-1 language code
-List<Country> result = await RESTCountriesAPI.GetCountriesByLanguageCodeAsync(string languageCode);
+var result = RestCountriesService.GetAllCountriesNames().ToList();
 ```
 
-- Search by the capital city.
+Here, you can choose the language you want. check out the the [`TranslationLanguage class`](https://github.com/egbakou/RESTCountries.NET/blob/main/src/RESTCountries.NET/Models/Translation.cs) to see the available languages.
 
 ```csharp
-// Search by capital city
-var result = await RESTCountriesAPI.GetCountryByCapitalCityAsync(string capitalCity);
-```
-
-You can use `var` instead of explicit types. I use explicit types to show you the return type of each method.
-
-- Search by calling code.
-
-```csharp
-// Search by calling code
-List<Country> result = await RESTCountriesAPI.GetCountriesByCallingCodeAsync(string callingCode);
-```
-
-- Search by continent: Africa, Americas, Asia, Europe, Oceania.
-
-```csharp
-//  Search by continent: Africa, Americas, Asia, Europe, Oceania
-List<Country> result = await RESTCountriesAPI.GetCountriesByContinentAsync(string continent);
-```
-
-- Search by regional bloc: EU, EFTA, CARICOM, AU, USAN, EEU, AL, ASEAN , CAIS, CEFTA , NAFTA , SAARC.
-
-```csharp
-//  Search by regional bloc
-List<Country> result = await RESTCountriesAPI.GetCountriesByRegionalBlocAsync(string regionalBloc);
-```
-
-**EU** (European Union), **EFTA** (European Free Trade Association), **CARICOM** (Caribbean Community), **PA** (Pacific Alliance), **AU** (African Union), **USAN** (Union of South American Nations), **EEU** (Eurasian Economic Union), **AL** (Arab League), **ASEAN** (Association of Southeast Asian Nations), **CAIS** (Central American Integration System), **CEFTA** (Central European Free Trade Agreement), **NAFTA** (North American Free Trade Agreement), **SAARC** (South Asian Association for Regional Cooperation).
-
-## Apply filters
-
-```csharp
-// Get all countries in Spanish language
-var countries = await RESTCountriesAPI.GetAllCountriesAsync();
-List<string> countriesInSpanish = countries.Select(c => c.Translations.Es).ToList();
-
-// Get Europe countries in French language
-var europeCountries = await RESTCountriesAPI.GetCountriesByContinentAsync("Europe"); ;
-List<string> europeCountriesInFrench = europeCountries.Select(c => c.Translations.Fr).ToList();
-
-// Fell free to apply filters 🤓
+//  Get country names in French langauge
+List<string> result = RestCountriesService.GetAllCountriesNames(TranslationLanguage.French).ToList()
 ```
 
 ## Country class
 
 ```csharp
 public class Country
-{    
-    // Gets or sets the Name
-    public string Name { get; set; }
+{
+    /// <summary>
+    /// Country name
+    /// </summary>
+    public CountryName Name { get; set; }
 
-    // Gets or sets the Top Level Domain
-    public IList<string> TopLevelDomain { get; set; }
+    /// <summary>
+    /// Top Level Domain of the country.
+    /// </summary>
+    public string[]? Tld { get; set; }
 
-    // Gets or sets the Alpha2 Code
-    public string Alpha2Code { get; set; }
+    /// <summary>
+    /// The alpha-2 code of the country.
+    /// </summary>
+    public string Cca2 { get; set; }
 
-    // Gets or sets the Alpha3 Code
-    public string Alpha3Code { get; set; }
+    /// <summary>
+    /// ISO 3166-1 numeric : https://en.wikipedia.org/wiki/ISO_3166-1_numeric
+    /// </summary>
+    public string? Ccn3 { get; set; }
 
-    // Gets or sets the Calling Codes
-    public IList<string> CallingCodes { get; set; }
+    /// <summary>
+    /// The alpha-3 code of the country.
+    /// </summary>
+    public string Cca3 { get; set; }
 
-    // Gets or sets the Capital City
-    public string Capital { get; set; }
+    /// <summary>
+    /// International Olympic Committee Code.
+    /// </summary>
+    public string Cioc { get; set; }
+    
+    /// <summary>
+    /// Is the country independent?
+    /// </summary>
+    public bool? Independent { get; set; }
 
-    // Gets or sets the Alt Spellings
-    public IList<string> AltSpellings { get; set; }    
+    /// <summary>
+    /// Status of the country. check out the https://restcountries.com/ for more info.
+    /// </summary>
+    public string? Status { get; set; }
 
-    // Gets or sets the Region
+    /// <summary>
+    /// Is the country member of the United Nations ?
+    /// </summary>
+    public bool UnMember { get; set; }
+
+    /// <summary>
+    /// Currencies used in the country.
+    /// The dictionary is the currency code, the value is a Currency
+    /// object: {name: string, symbol: string}.
+    /// </summary>
+    public Dictionary<string, Currency>? Currencies { get; set; }
+
+    /// <summary>
+    /// International direct dialing.
+    /// </summary>
+    public Idd Idd { get; set; }
+
+    /// <summary>
+    /// Capital(s) of the country.
+    /// </summary>
+    public string[] Capital { get; set; }
+
+    /// <summary>
+    /// Alternative spellings of the country.
+    /// </summary>
+    public string[] AltSpellings { get; set; }
+
+    /// <summary>
+    /// Region of the country (eg. Africa, Americas, Asia, Europe, Oceania, Antarctic).
+    /// </summary>
     public string Region { get; set; }
 
-    // Gets or sets the Subregion
-    public string Subregion { get; set; }
+    /// <summary>
+    /// The subregion of the country(eg. Western Africa, Western Europe, ...)
+    /// <remarks>Can be null.</remarks>
+    /// </summary>
+    public string? Subregion { get; set; }
 
-    // Gets or sets the Population
-    public int Population { get; set; }
+    /// <summary>
+    /// Languages spoken in the country.
+    /// The key of the dictionary is the language code, the value is a
+    /// the language name in english.
+    /// </summary>
+    public Dictionary<string, string>? Languages { get; set; }
 
-    // Gets or sets the Latlng(Latitude and Longitude)
-    public IList<double> Latlng { get; set; }
+    /// <summary>
+    /// Translations of the country name in other languages
+    /// </summary>
+    public Dictionary<string, Translation> Translations { get; set; }
 
-    // Gets or sets the Demonym
-    public string Demonym { get; set; }
+    /// <summary>
+    /// Gps coordinates of the country in the format: [latitude, longitude].
+    /// </summary>
+    private double[] LatLng { get; set; }
 
-    // Gets or sets the Area
+    /// <summary>
+    /// Is the country landlocked?
+    /// </summary>
+    public bool Landlocked { get; set; }
+
+    /// <summary>
+    /// Neighboring countries.
+    /// </summary>
+    public string[] Borders { get; set; }
+
+    /// <summary>
+    /// The area of the country in square kilometers.
+    /// </summary>
     public double? Area { get; set; }
 
-    // Gets or sets the Gini
-    public double? Gini { get; set; }
+    /// <summary>
+    /// Demonym.
+    /// </summary>
+    public Demonyms? Demonyms { get; set; }
+    
+    /// <summary>
+    /// Unicode flag.
+    /// </summary>
+    public string UnicodeFlag { get; set; }
 
-    // Gets or sets the Timezones
-    public IList<string> Timezones { get; set; }
+    /// <summary>
+    /// Google maps or OpenStreetMap link.
+    /// </summary>
+    public Maps Maps { get; set; }
 
-    // Gets or sets the Borders
-    public IList<string> Borders { get; set; }
+    /// <summary>
+    /// FIFA code.
+    /// </summary>
+    public string? Fifa { get; set; }
 
-    // Gets or sets the Native Name
-    public string NativeName { get; set; }
+    /// <summary>
+    /// Car information.
+    /// </summary>
+    public Car? Car { get; set; }
+    
+    /// <summary>
+    /// List of timezones.
+    /// </summary>
+    public string[] Timezones { get; set; }
 
-    // Gets or sets the Numeric Code
-    public string NumericCode { get; set; }
+    /// <summary>
+    /// Continent of the country. Only one continent is possible.
+    /// The data source taken from https://restcountries.com/ return a list of
+    /// one continent. That's why it's an array.
+    /// </summary>
+    public string[] Continents { get; set; }
 
-    // Gets or sets the Currencies
-    public IList<Currency> Currencies { get; set; }
-
-    // Gets or sets the Languages
-    public IList<Language> Languages { get; set; }
-
-    // Gets or sets the Translations
-    public Translations Translations { get; set; }
-
-    // Gets or sets the Flag (Svg and PNG format)
+    /// <summary>
+    /// Flag(Url) of the country in png and svg format.
+    /// </summary>
     public Flag Flag { get; set; }
 
-    // Gets or sets the Regional Blocs
-    public IList<RegionalBloc> RegionalBlocs { get; set; }
+    /// <summary>
+    /// The week start by which day ? (eg. Sunday, Monday, ...)
+    /// </summary>
+    public string StartOfWeek { get; set; }
 
-    // Gets or sets the Cioc(International Olympic Committee Code)
-    public string Cioc { get; set; }
+    /// <summary>
+    /// Capital details. (eg. latitude, longitude, ...)
+    /// </summary>
+    public CapitalInformation CapitalInformation { get; set; }
+
+    /// <summary>
+    /// Postal code information (eg. format, regex).
+    /// </summary>
+    public PostalCode? PostalCode { get; set; }
 }
 ```
 
-## Created by: Kodjo Laurent Egbakou
+## Created by: Laurent Egbakou
 
 - LinkedIn: [Laurent Egbakou](https://www.linkedin.com/in/laurentegbakou/)
 - Twitter: [@lioncoding](https://twitter.com/lioncoding)
@@ -208,4 +281,4 @@ The MIT License (MIT) see [License file](https://github.com/egbakou/RESTCountrie
 
 ## Contribution
 
-Feel free to create issues and PRs 😃
+Feel free to create issues and PRs !
