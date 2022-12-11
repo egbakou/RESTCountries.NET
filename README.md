@@ -10,16 +10,18 @@ Documentation of the previous versions can be found [here](https://github.com/eg
 
 ## Version 3 features
 
-- Offline support 
-
-- More translation languages
-- Country postal code with regex
-- Google Map and OpenStreetMap location
-- Country flag in unicode, png and svg format
-- Time zones information
-- Car information
-- Start of the week
-- Mobile phone prefix information
+| Features                                    |        v2.x.x         | Current version |
+| ------------------------------------------- | :-------------------: | :-------------: |
+| Offline support                             |           ❌           |        ✔️        |
+| More translation languages                  |           ❌           |        ✔️        |
+| Country postal code with regex              |           ❌           |        ✔️        |
+| Google Map and OpenStreetMap location       |           ❌           |        ✔️        |
+| Country flag in unicode, png and svg format | Unicode not supported |        ✔️        |
+| Time zones information                      |           ❌           |        ✔️        |
+| Time zones information                      |           ❌           |        ✔️        |
+| Car information                             |           ❌           |        ✔️        |
+| Start of the week                           |           ❌           |        ✔️        |
+| Mobile phone prefix information             |           ❌           |        ✔️        |
 
 ## Note
 
@@ -38,7 +40,7 @@ The default language for the country name is English, but you can also get the n
 
 > Note: The list is already ordered ascending by the country name. 
 
-- Get all countries.
+- Get all countries
 
 ```csharp
 // Get all countries
@@ -52,14 +54,14 @@ IEnumerable<Country> countries = RestCountriesService.GetAllCountries();
 IEnumerable<Country> result = RestCountriesService.GetCountriesByNameContains("a");
 ```
 
-- Search by country full name.
+- Search by country full name
 
 ```csharp
 // Search by country full name
 Country? result = GetCountryByFullName("Brazil");
 ```
 
-- Search by ISO 3166-1 2-letter or 3-letter country code.
+- Search by Alpha-2 code or Alpha-3 code
 
 ```csharp
 // Search by list of ISO 3166-1 2-letter or 3-letter country codes
@@ -73,7 +75,7 @@ Country? result = RestCountriesService.GetCountryByCode("us"); // or USA
 IEnumerable<Country> result = RestCountriesService.GetCountriesByCurrency("EUR"); // Or Euro or €
 ```
 
-- Search by language(language 3 prefix or language name)
+- Search by language
 
 ```csharp
 // Search by language
