@@ -9,7 +9,7 @@
 		<Description>.NET wrapper library around the API provided by REST Countries https://restcountries.com. Get information about countries, Get all countries, Apply filters to retrieve what you need.</Description>
 		<PackageProjectUrl>https://github.com/egbakou/RESTCountries.NET</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/egbakou/RESTCountries.NET</RepositoryUrl>
-		<PackageIconUrl>https://raw.githubusercontent.com/egbakou/logos/master/RESTCountries.NET/logo.png?raw=true</PackageIconUrl>
+		<PackageIcon>icon.png</PackageIcon>
 		<Version>2.1.0</Version>
 		<PackageReleaseNotes>See: https://github.com/egbakou/RESTCountries.NET </PackageReleaseNotes>
 		<PackageTags>Country-Info, World, Info, RestCountries, Country-Data, Rest</PackageTags>
@@ -43,6 +43,7 @@
 
 	<ItemGroup>
 		<None Include="..\..\nuget\readme.txt" PackagePath="readme.txt" Pack="true" />
+		<None Include="..\..\art\icon.png" Pack="true" PackagePath="" />
 	</ItemGroup>
 
 	<ItemGroup>
