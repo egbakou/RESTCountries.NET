@@ -15,7 +15,7 @@ Documentation of the previous versions can be found [here](https://github.com/eg
 | Offline support                             |           ❌           |        ✔️        |
 | More translation languages                  |           ❌           |        ✔️        |
 | Country postal code with regex              |           ❌           |        ✔️        |
-| Google Map and OpenStreetMap location       |           ❌           |        ✔️        |
+| Google Maps and OpenStreetMap location       |           ❌           |        ✔️        |
 | Country flag in unicode, png and svg format | Unicode not supported |        ✔️        |
 | Time zones information                      |           ❌           |        ✔️        |
 | Car information                             |           ❌           |        ✔️        |
