@@ -1,71 +1,142 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
-namespace RESTCountries.Models
+namespace RESTCountries.NET.Models
 {
     /// <summary>
-    /// Defines a <see cref="Translations" />.
-    /// It contains some tranlations of country name in another languages.
+    /// Translation class.
     /// </summary>
-    public class Translations
+    public class Translation
     {
         /// <summary>
-        /// Country name translated in German language
+        /// Official name.
         /// </summary>
-        [JsonProperty("de")]
-        public string De { get; set; }
+        [JsonPropertyName("official")]
+        public string Official { get; set; }
 
         /// <summary>
-        /// Country name translated in Spanish, Castilian language
+        /// Common used name.
         /// </summary>
-        [JsonProperty("es")]
-        public string Es { get; set; }
-
+        [JsonPropertyName("common")]
+        public string Common { get; set; }
+    }
+    
+    /// <summary>
+    /// https://iso639-3.sil.org/code/{code}
+    /// </summary>
+    public static class TranslationLanguage
+    {
         /// <summary>
-        /// Country name translated in French language
+        /// Arabic language.
         /// </summary>
-        [JsonProperty("fr")]
-        public string Fr { get; set; }
-
+        public static readonly string Arabic = "arb";
+        
         /// <summary>
-        /// Country name translated in Japanese language
+        /// Breton language.
         /// </summary>
-        [JsonProperty("ja")]
-        public string Ja { get; set; }
-
+        public static readonly string Breton = "bre";
+        
         /// <summary>
-        /// Country name translated in Italian language
+        /// Czech language.
         /// </summary>
-        [JsonProperty("it")]
-        public string It { get; set; }
-
+        public static readonly string Czech = "ces";
+        
         /// <summary>
-        /// Country name translated in Breton language
+        /// Welsh language.
         /// </summary>
-        [JsonProperty("br")]
-        public string Br { get; set; }
-
+        public static readonly string Welsh = "cym";
+        
         /// <summary>
-        /// Country name translated in Portuguese language.
+        /// German language.
         /// </summary>
-        [JsonProperty("pt")]
-        public string Pt { get; set; }
-
+        public static readonly string German = "deu";
+        
         /// <summary>
-        /// Country name translated in Dutch language
+        /// Estonian language.
         /// </summary>
-        [JsonProperty("nl")]
-        public string Nl { get; set; }
-
+        public static readonly string Estonian = "est";
+        
         /// <summary>
-        /// Country name translated in Croatian language
+        /// Finnish language.
         /// </summary>
-        [JsonProperty("hr")]
-        public string Hr { get; set; }
-
+        public static readonly string Finnish = "fin";
+        
         /// <summary>
-        /// Country name translated in Persian language
+        /// French language.
         /// </summary>
-        [JsonProperty("fa")]
-        public string Fa { get; set; }
+        public static readonly string French = "fra";
+        
+        /// <summary>
+        /// Croatian language.
+        /// </summary>
+        public static readonly string Croatian = "hrv";
+        
+        /// <summary>
+        /// Hungarian language.
+        /// </summary>
+        public static readonly string Hungarian = "hun";
+        
+        /// <summary>
+        /// Italian language.
+        /// </summary>
+        public static readonly string Italian = "ita";
+        
+        /// <summary>
+        /// Japanese language.
+        /// </summary>
+        public static readonly string Japanese = "jpn";
+        
+        /// <summary>
+        /// Korean language.
+        /// </summary>
+        public static readonly string Korean = "kor";
+        
+        /// <summary>
+        /// Dutch language.
+        /// </summary>
+        public static readonly string Dutch = "nld";
+        
+        /// <summary>
+        /// Persian language.
+        /// </summary>
+        public static readonly string Persian = "per";
+        
+        /// <summary>
+        /// Polish language.
+        /// </summary>
+        public static readonly string Polish = "pol";
+        
+        /// <summary>
+        /// Russian language.
+        /// </summary>
+        public static readonly string Russian = "rus";
+        
+        /// <summary>
+        /// Slovak language.
+        /// </summary>
+        public static readonly string Slovak = "slk";
+        
+        /// <summary>
+        /// Spanish language.
+        /// </summary>
+        public static readonly string Spanish = "spa";
+        
+        /// <summary>
+        /// Swedish language.
+        /// </summary>
+        public static readonly string Swedish = "swe";
+        
+        /// <summary>
+        /// Turkish language.
+        /// </summary>
+        public static readonly string Turkish = "tur";
+        /// <summary>
+        /// Urdu language.
+        /// </summary>
+        public static readonly string Urdu = "urd";
+        
+        /// <summary>
+        /// Chinese language.
+        /// </summary>
+        public static readonly string Chinese = "zho";
     }
 }

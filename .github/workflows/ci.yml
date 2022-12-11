@@ -3,9 +3,16 @@ name: CI
 on:
   push:
     branches: [ main ]
+    paths-ignore:
+      - 'README.md'
+      - 'LEGACY_README_V2.md'
+      - 'nuget.md'
   pull_request:
     branches: [ main ]
-  workflow_dispatch:
+    paths-ignore:
+      - 'README.md'
+      - 'LEGACY_README_V2.md'
+      - 'nuget.md'
 
 jobs:
   build:
@@ -17,7 +24,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 5.0.x
+        dotnet-version: 6.0.x
 
     - name: Build
       run: dotnet build --configuration Release

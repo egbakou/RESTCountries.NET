@@ -1,12 +1,7 @@
-# <img src="art/icon.png" alt="Icon" width="60" />RESTCountries.NET v3.0.0
+# RESTCountries.NET v3.0.0
 A completely offline library to get information about countries.
 
 Documentation of the previous versions can be found [here](https://github.com/egbakou/RESTCountries.NET/blob/main/LEGACY_README_V2.md).
-
-## Setup
-
-- Available on NuGet: https://www.nuget.org/packages/RESTCountries.NET/ [![NuGet](https://img.shields.io/nuget/v/RESTCountries.NET.svg?label=NuGet)](https://www.nuget.org/packages/RESTCountries.NET/) ![NuGet](https://img.shields.io/nuget/dt/RESTCountries.NET.svg)
-- Install it into your dotnet project(.NET Standard, .NET Core, .NET, Maui, WPF, etc.).
 
 ## Version 3 features
 
@@ -22,6 +17,11 @@ Documentation of the previous versions can be found [here](https://github.com/eg
 | Car information                             |           ❌           |        ✔️        |
 | Start of the week                           |           ❌           |        ✔️        |
 | Mobile phone prefix information             |           ❌           |        ✔️        |
+
+## Setup
+
+- Available on NuGet: https://www.nuget.org/packages/RESTCountries.NET/ [![NuGet](https://img.shields.io/nuget/v/RESTCountries.NET.svg?label=NuGet)](https://www.nuget.org/packages/RESTCountries.NET/) ![NuGet](https://img.shields.io/nuget/dt/RESTCountries.NET.svg)
+- Install it into your dotnet project(.NET Standard, .NET Core, .NET, Xamarin, Maui, WPF, etc.).
 
 ## Note
 
@@ -271,10 +271,6 @@ public class Country
     public PostalCode? PostalCode { get; set; }
 }
 ```
-
-## Issues
-
-If you find an error in the data source, please create an issue on the restcountries.com repo available on GitLab(https://gitlab.com/amatos/rest-countries), where our local data comes from.
 
 ## Created by: Laurent Egbakou
 

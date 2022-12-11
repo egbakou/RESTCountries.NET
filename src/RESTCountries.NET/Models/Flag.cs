@@ -1,21 +1,22 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
-namespace RESTCountries.Models
+namespace RESTCountries.NET.Models
 {
     /// <summary>
-    /// Country flag.
+    /// Flag of a country in different formats: PNG, SVG, ...
     /// </summary>
     public class Flag
     {
         /// <summary>
-        /// Country flag in SVG format.
+        /// Url to the PNG flag.
         /// </summary>
-        [JsonProperty("svg")]
-        public string Svg { get; set; }
-        /// <summary>
-        /// Country flag in PNG format.
-        /// </summary>
-        [JsonProperty("png")]
+        [JsonPropertyName("png")]
         public string Png { get; set; }
+        
+        /// <summary>
+        /// Url to the SVG flag.
+        /// </summary>
+        [JsonPropertyName("svg")]
+        public string Svg { get; set; }
     }
 }
