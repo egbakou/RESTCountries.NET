@@ -6,7 +6,8 @@
 		<RootNamespace>RESTCountries.NET</RootNamespace>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<Authors>Kodjo Laurent Egbakou</Authors>
-		<Description>.NET wrapper library around the API provided by REST Countries https://restcountries.com. Get information about countries, Get all countries, Apply filters to retrieve what you need.</Description>
+		<Description>offline library to get information about countries like name, capital, currencies, phone number prefixes, postal code, regex, time zones, google map location, openstreetmap location, flags, ...</Description>
+		<PackageReadmeFile>nuget.md</PackageReadmeFile>
 		<PackageProjectUrl>https://github.com/egbakou/RESTCountries.NET</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/egbakou/RESTCountries.NET</RepositoryUrl>
 		<PackageIcon>icon.png</PackageIcon>
@@ -44,6 +45,7 @@
 	<ItemGroup>
 		<None Include="..\..\nuget\readme.txt" PackagePath="readme.txt" Pack="true" />
 		<None Include="..\..\art\icon.png" Pack="true" PackagePath="" />
+		<None Include="..\..\nuget.md" Pack="true" PackagePath="\"/>
 	</ItemGroup>
 
 	<ItemGroup>
