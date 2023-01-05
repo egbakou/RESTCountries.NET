@@ -77,6 +77,7 @@ namespace RESTCountries.NET.Tests
             result.ShouldContain(c=> c.Name.Common.Equals("Spain"));
             result.ShouldContain(c=> c.Name.Common.Equals("Italy"));
             result.ShouldContain(c=> c.Name.Common.Equals("Germany"));
+            result.ShouldContain(c=> c.Name.Common.Equals("Croatia"));
             
             // Wrong case
             result = RestCountriesService.GetCountriesByCurrency("kkkkk").ToList();
