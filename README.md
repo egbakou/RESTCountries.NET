@@ -290,4 +290,4 @@ The MIT License (MIT) see [License file](https://github.com/egbakou/RESTCountrie
 
 ## Contribution
 
-Feel free to create issues and PRs !
+Pull requests are more than welcome! If you do submit one, please make sure to read the [contributing guidelines](https://github.com/egbakou/RESTCountries.NET/blob/main/README.md) first.
