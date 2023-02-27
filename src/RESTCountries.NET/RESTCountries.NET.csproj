@@ -11,9 +11,9 @@
 		<PackageProjectUrl>https://github.com/egbakou/RESTCountries.NET</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/egbakou/RESTCountries.NET</RepositoryUrl>
 		<PackageIcon>icon.png</PackageIcon>
-		<Version>3.0.0</Version>
+		<Version>3.0.1</Version>
 		<PackageReleaseNotes>See: https://github.com/egbakou/RESTCountries.NET </PackageReleaseNotes>
-		<PackageTags>Country-Info, World, Info, RestCountries, Country-Data, Rest</PackageTags>
+		<PackageTags>Countries, World, Continents, Phone-number, Cities, Capital</PackageTags>
 		<Copyright>Copyright 2019</Copyright>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<NeutralLanguage>en</NeutralLanguage>
