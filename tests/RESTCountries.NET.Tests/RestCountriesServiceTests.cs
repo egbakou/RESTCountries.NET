@@ -129,5 +129,47 @@ namespace RESTCountries.NET.Tests
             result = RestCountriesService.GetAllCountriesNames("unknow language").ToList();
             result.ShouldBeEmpty();
         }
+
+        [Fact]
+        public void GetStatesByCountryCode_Should_Return_States_For_Valid_CountryCode()
+        {
+            // Given "US" is a valid country code with known states
+            var result = RestCountriesService.GetStatesByCountryCode("US").ToList();
+
+            result.ShouldNotBeEmpty();
+            result.Count.ShouldBeGreaterThan(1); // Assuming there are multiple states for "US"
+            result.ShouldContain(s => s.Name == "California"); // Assuming California is a state in "US"
+        }
+
+        [Fact]
+        public void GetStatesByCountryCode_Should_Return_Empty_For_Invalid_CountryCode()
+        {
+            // Given "XX" is an invalid country code
+            var result = RestCountriesService.GetStatesByCountryCode("XX").ToList();
+
+            result.ShouldBeEmpty();
+        }
+
+        [Fact]
+        public void GetCitiesInState_Should_Return_Cities_For_Valid_StateCode()
+        {
+            // Given "CA" is a valid state code with known cities and "US" is a valid ISO2 country code in test data
+            var result = RestCountriesService.GetCitiesInState("CA", "US").ToList();
+
+            result.ShouldNotBeEmpty();
+            result.Count.ShouldBeGreaterThan(1); // Assuming there are multiple cities in "CA"
+            result.ShouldContain(c => c.Name == "Los Angeles"); // Assuming Los Angeles is a city in "CA"
+        }
+
+        [Fact]
+        public void GetCitiesInState_Should_Return_Empty_For_Invalid_StateCode()
+        {
+            // Given "XX" is an invalid state code and "YY" is an invalid ISO2 country code
+            var result = RestCountriesService.GetCitiesInState("XX", "YY").ToList();
+
+            result.ShouldBeEmpty();
+        }
+
+      
     }
 }

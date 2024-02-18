@@ -133,5 +133,30 @@ namespace RESTCountries.NET.Services
                     : null
             ).Where(c => c != null).OrderBy(c => c);
         }
+        
+         /// <summary>
+        /// Retrieves all states within a given country, identified by its ISO2 country code.
+        /// This method provides an easy way to access state information for a specific country,
+        /// leveraging the detailed geographical data managed by RestStateService.
+        /// </summary>
+        /// <param name="countryCode">The ISO2 country code of the country. Eg. US </param>
+        /// <returns>A collection of State objects within the specified country. Returns an empty collection if no states are found.</returns>
+        public static IEnumerable<State> GetStatesByCountryCode(string countryCode)
+        {
+            return RestStateService.GetStatesInCountry(countryCode);
+        }
+
+        /// <summary>
+        /// Retrieves all cities within a specified state, identified by its state code and ISO2 code of the country.
+        /// This method simplifies the process of finding cities within a state, using state-specific data
+        /// provided by RestStateService.
+        /// </summary>
+        /// <param name="stateCode">The state code. Eg. CA</param>
+        /// <param name="countryCode">The ISO2 code of the country. Eg. US </param>
+        /// <returns>A collection of City objects within the specified state. Returns an empty collection if no cities are found or the state does not exist.</returns>
+        public static IEnumerable<City> GetCitiesInState(string stateCode, string countryCode)
+        {
+            return RestStateService.GetCitiesInState(stateCode, countryCode);
+        }
     }
 }
