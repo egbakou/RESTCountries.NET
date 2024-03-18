@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Reflection;
 using System.Text.Json;
@@ -52,9 +53,21 @@ namespace RESTCountries.NET.Services
             try
             {
                 var assembly = Assembly.GetExecutingAssembly();
-                using var stream = assembly.GetManifestResourceStream("RESTCountries.NET.Services.states.json");
-                allStates = stream != null
-                    ? JsonSerializer.Deserialize<IEnumerable<State>>(new StreamReader(stream).ReadToEnd())
+                string zipResourcePath = "RESTCountries.NET.Services.states.json.zip";
+
+                using var zipStream = assembly.GetManifestResourceStream(zipResourcePath);
+                if (zipStream == null) throw new Exception("Unable to load ZIP resource.");
+
+                using var archive = new ZipArchive(zipStream, ZipArchiveMode.Read);
+                ZipArchiveEntry entry = archive.GetEntry("states.json"); 
+
+                if (entry == null) throw new Exception("JSON file not found inside ZIP.");
+
+                using var entryStream = entry.Open();
+                using var streamReader = new StreamReader(entryStream);
+                
+                allStates = streamReader != null
+                    ? JsonSerializer.Deserialize<IEnumerable<State>>(streamReader.ReadToEnd())
                     : throw new Exception("Unable to load data source.");
 
 

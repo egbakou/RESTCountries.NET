@@ -35,14 +35,13 @@
 
 	<ItemGroup>
 		<None Remove="Services\data.json" />
-		<None Remove="Services\states.json"/>
+		<None Remove="Services\states.json.zip"/>
 	</ItemGroup>
 	<ItemGroup>
 		<EmbeddedResource Include="Services\data.json">
 			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
 		</EmbeddedResource>
-	
-		<EmbeddedResource Include="Services\states.json" >
+		<EmbeddedResource Include="Services\states.json.zip">
 			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
 		</EmbeddedResource>
 	</ItemGroup>
