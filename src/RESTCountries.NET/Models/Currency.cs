@@ -8,13 +8,13 @@ namespace RESTCountries.NET.Models
     public class Currency
     {
         /// <summary>
-        /// The currency name.
+        /// Gets or sets the currency name.
         /// </summary>
         [JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
-        /// The currency code.
+        /// Gets or sets the currency code.
         /// </summary>
         [JsonPropertyName("symbol")]
         public string? Symbol { get; set; }

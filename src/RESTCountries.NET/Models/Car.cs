@@ -8,13 +8,13 @@ namespace RESTCountries.NET.Models
     public class Car
     {
         /// <summary>
-        /// Signs that can be found on the vehicle.
+        /// Gets or sets signs that can be found on the vehicle.
         /// </summary>
         [JsonPropertyName("signs")]
         public string[] Signs { get; set; }
 
         /// <summary>
-        /// The name of the side of the road that traffic drives on: left or right.
+        /// Gets or sets the name of the side of the road that traffic drives on: left or right.
         /// </summary>
         [JsonPropertyName("side")]
         public string Side { get; set; }

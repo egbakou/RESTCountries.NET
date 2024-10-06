@@ -8,13 +8,13 @@ namespace RESTCountries.NET.Models
     public class Maps
     {
         /// <summary>
-        /// Google Maps location URL.
+        /// Gets or sets google Maps location URL.
         /// </summary>
         [JsonPropertyName("googleMaps")]
         public string GoogleMaps { get; set; }
 
         /// <summary>
-        /// Open Street Maps location URL.
+        /// Gets or sets open Street Maps location URL.
         /// </summary>
         [JsonPropertyName("openStreetMaps")]
         public string OpenStreetMaps { get; set; }
