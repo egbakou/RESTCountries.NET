@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29102.190
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35323.107
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RESTCountries.NET", "src\RESTCountries.NET\RESTCountries.NET.csproj", "{7A4DF9B2-5D30-4C1F-8B16-874F726FC615}"
 EndProject
@@ -35,12 +35,12 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {417DF280-3BB9-4A92-A586-B844D28A5557}
-	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{7A4DF9B2-5D30-4C1F-8B16-874F726FC615} = {461CA477-63AD-4908-9E58-632EA2F23A3A}
-		{46963E63-92C5-4D5C-8E85-69CAC09A46AF} = {CD16ADD9-4A80-42FC-9207-E6A592FE1CFE}
 		{B5370CF4-9B81-4660-86F1-4E49B4E6E282} = {CD16ADD9-4A80-42FC-9207-E6A592FE1CFE}
+		{46963E63-92C5-4D5C-8E85-69CAC09A46AF} = {CD16ADD9-4A80-42FC-9207-E6A592FE1CFE}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {417DF280-3BB9-4A92-A586-B844D28A5557}
 	EndGlobalSection
 EndGlobal

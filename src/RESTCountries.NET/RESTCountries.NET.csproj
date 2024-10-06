@@ -45,11 +45,11 @@
 	<ItemGroup>
 		<None Include="..\..\nuget\readme.txt" PackagePath="readme.txt" Pack="true" />
 		<None Include="..\..\art\icon.png" Pack="true" PackagePath="" />
-		<None Include="..\..\nuget.md" Pack="true" PackagePath="\"/>
+		<None Include="..\..\nuget.md" Pack="true" PackagePath="\" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="System.Text.Json" Version="7.0.0" />
+		<PackageReference Include="System.Text.Json" Version="8.0.4" />
 	</ItemGroup>
 
 </Project>
