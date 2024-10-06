@@ -1,16 +1,17 @@
-﻿using RESTCountries.NET.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text.Json;
 
+using RESTCountries.NET.Models;
+
 namespace RESTCountries.NET.Services
 {
     /// <summary>
     /// Defines a <see cref="RestCountriesService" />.
-    ///<para>Get information about countries.</para>
+    /// <para>Get information about countries.</para>
     /// </summary>
     public static class RestCountriesService
     {
@@ -54,8 +55,7 @@ namespace RESTCountries.NET.Services
                 c.Name.Common.Equals(fullName, StringComparison.InvariantCultureIgnoreCase) ||
                 (c.Name.NativeName != null && c.Name.NativeName.Any(n =>
                     n.Value.Common.Equals(fullName, StringComparison.InvariantCultureIgnoreCase) ||
-                    n.Value.Official.Equals(fullName, StringComparison.InvariantCultureIgnoreCase)))
-            );
+                    n.Value.Official.Equals(fullName, StringComparison.InvariantCultureIgnoreCase))));
         }
 
         /// <summary>
@@ -71,7 +71,6 @@ namespace RESTCountries.NET.Services
                 c.Cca3.Equals(countryCode, StringComparison.InvariantCultureIgnoreCase));
         }
 
-
         /// <summary>
         /// Search by currency code, name or currency symbol.
         /// Eg. "EUR" or "€" or "EURO" for Euro.
@@ -83,9 +82,11 @@ namespace RESTCountries.NET.Services
         {
             return Data.Where(c => c.Currencies != null && c.Currencies.Any(cc =>
                 cc.Key.Equals(currency, StringComparison.InvariantCultureIgnoreCase) ||
-                (cc.Value.Name != null && cc.Value.Name.Equals(currency, StringComparison.InvariantCultureIgnoreCase)) ||
-                (cc.Value.Symbol != null && cc.Value.Symbol.Equals(currency, StringComparison.InvariantCultureIgnoreCase))
-                )).OrderBy(c => c.Name.Common);
+                (cc.Value.Name != null &&
+                 cc.Value.Name.Equals(currency, StringComparison.InvariantCultureIgnoreCase)) ||
+                (cc.Value.Symbol != null &&
+                 cc.Value.Symbol.Equals(currency, StringComparison.InvariantCultureIgnoreCase))))
+                .OrderBy(c => c.Name.Common);
         }
 
         /// <summary>
@@ -93,16 +94,15 @@ namespace RESTCountries.NET.Services
         /// Eg. "FRA" or "French" for France.
         /// Note: Not all countries have a language property in the data source.
         /// </summary>
-        /// <param name="language">The language name or code</param>
+        /// <param name="language">The language name or code.</param>
         /// <returns>Countries that speak the provided language.</returns>
         public static IEnumerable<Country> GetCountriesByLanguage(string language)
         {
             return Data.Where(c => c.Languages != null && c.Languages.Any(l =>
                 l.Key.Equals(language, StringComparison.InvariantCultureIgnoreCase) ||
-                l.Value.Equals(language, StringComparison.InvariantCultureIgnoreCase))
-            ).OrderBy(c => c.Name.Common);
+                l.Value.Equals(language, StringComparison.InvariantCultureIgnoreCase)))
+            .OrderBy(c => c.Name.Common);
         }
-
 
         /// <summary>
         /// Get the name of all countries.
@@ -112,9 +112,10 @@ namespace RESTCountries.NET.Services
         /// Example: <code>var countries = RestCountriesService.GetAllCountriesNames(TranslationLanguage.French);</code>
         /// </summary>
         /// <param name="translationLanguage">The language.</param>
-        /// <param name="useCommonName">Return common names ?</param>
+        /// <param name="useCommonName">Use the common name or the official name.</param>
         /// <returns>Enumerable of country names.</returns>
-        public static IEnumerable<string> GetAllCountriesNames(string translationLanguage = "ENG",
+        public static IEnumerable<string> GetAllCountriesNames(
+            string translationLanguage = "ENG",
             bool useCommonName = true)
         {
             // if the translation language is not provided, use the default one
@@ -127,11 +128,11 @@ namespace RESTCountries.NET.Services
 
             // if the translation language is provided, use the Translation property
             return Data.Select(c => useCommonName
-                ? c.Translations.TryGetValue(translationLanguage, out var t) ? t.Common : null
-                : c.Translations.TryGetValue(translationLanguage, out var t2)
-                    ? t2.Official
-                    : null
-            ).Where(c => c != null).OrderBy(c => c);
+                    ? c.Translations.TryGetValue(translationLanguage, out var t) ? t.Common : null
+                    : c.Translations.TryGetValue(translationLanguage, out var t2)
+                        ? t2.Official
+                        : null)
+                .Where(c => c != null).OrderBy(c => c);
         }
     }
 }

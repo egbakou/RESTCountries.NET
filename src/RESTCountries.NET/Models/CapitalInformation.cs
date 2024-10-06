@@ -8,7 +8,7 @@ namespace RESTCountries.NET.Models
     public class CapitalInformation
     {
         /// <summary>
-        /// GPS coordinates of the capital. [latitude, longitude]
+        /// Gets or sets gPS coordinates of the capital. [latitude, longitude].
         /// </summary>
         [JsonPropertyName("latlng")]
         private string[] Latlng { get; set; }

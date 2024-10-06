@@ -8,13 +8,13 @@ namespace RESTCountries.NET.Models
     public class Flag
     {
         /// <summary>
-        /// Url to the PNG flag.
+        /// Gets or sets url to the PNG flag.
         /// </summary>
         [JsonPropertyName("png")]
         public string Png { get; set; }
-        
+
         /// <summary>
-        /// Url to the SVG flag.
+        /// Gets or sets url to the SVG flag.
         /// </summary>
         [JsonPropertyName("svg")]
         public string Svg { get; set; }

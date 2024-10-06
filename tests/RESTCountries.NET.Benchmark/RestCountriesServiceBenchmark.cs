@@ -1,6 +1,6 @@
 ﻿using BenchmarkDotNet.Attributes;
-using RESTCountries.NET.Services;
 using RESTCountries.NET.Models;
+using RESTCountries.NET.Services;
 
 namespace RESTCountries.NET.Benchmark;
 
@@ -8,7 +8,6 @@ namespace RESTCountries.NET.Benchmark;
 [MediumRunJob]
 public class RestCountriesServiceBenchmark
 {
-
     [Benchmark]
     public List<Country> GetAllCountries() => RestCountriesService.GetAllCountries().ToList();
 }

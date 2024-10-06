@@ -1,0 +1,54 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35323.107
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RESTCountries.NET", "src\RESTCountries.NET\RESTCountries.NET.csproj", "{7A4DF9B2-5D30-4C1F-8B16-874F726FC615}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RESTCountries.NET.Tests", "tests\RESTCountries.NET.Tests\RESTCountries.NET.Tests.csproj", "{B5370CF4-9B81-4660-86F1-4E49B4E6E282}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RESTCountries.NET.Benchmark", "tests\RESTCountries.NET.Benchmark\RESTCountries.NET.Benchmark.csproj", "{46963E63-92C5-4D5C-8E85-69CAC09A46AF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{461CA477-63AD-4908-9E58-632EA2F23A3A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{CD16ADD9-4A80-42FC-9207-E6A592FE1CFE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BF6565A4-54CB-4607-9C0D-2A9FC1E9052D}"
+    ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+		Directory.Build.props = Directory.Build.props
+		ci.yml = .github\workflows\ci.yml
+		cd.yml = .github\workflows\cd.yml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7A4DF9B2-5D30-4C1F-8B16-874F726FC615}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A4DF9B2-5D30-4C1F-8B16-874F726FC615}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A4DF9B2-5D30-4C1F-8B16-874F726FC615}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A4DF9B2-5D30-4C1F-8B16-874F726FC615}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5370CF4-9B81-4660-86F1-4E49B4E6E282}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5370CF4-9B81-4660-86F1-4E49B4E6E282}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5370CF4-9B81-4660-86F1-4E49B4E6E282}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5370CF4-9B81-4660-86F1-4E49B4E6E282}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46963E63-92C5-4D5C-8E85-69CAC09A46AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46963E63-92C5-4D5C-8E85-69CAC09A46AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46963E63-92C5-4D5C-8E85-69CAC09A46AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46963E63-92C5-4D5C-8E85-69CAC09A46AF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7A4DF9B2-5D30-4C1F-8B16-874F726FC615} = {461CA477-63AD-4908-9E58-632EA2F23A3A}
+		{B5370CF4-9B81-4660-86F1-4E49B4E6E282} = {CD16ADD9-4A80-42FC-9207-E6A592FE1CFE}
+		{46963E63-92C5-4D5C-8E85-69CAC09A46AF} = {CD16ADD9-4A80-42FC-9207-E6A592FE1CFE}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {417DF280-3BB9-4A92-A586-B844D28A5557}
+	EndGlobalSection
+EndGlobal

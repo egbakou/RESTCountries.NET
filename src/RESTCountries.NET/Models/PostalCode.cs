@@ -8,13 +8,13 @@ namespace RESTCountries.NET.Models
     public class PostalCode
     {
         /// <summary>
-        /// The postal code format.
+        /// Gets or sets the postal code format.
         /// </summary>
         [JsonPropertyName("format")]
         public string Format { get; set; }
 
         /// <summary>
-        /// Regex pattern for the postal code.
+        /// Gets or sets regex pattern for the postal code.
         /// </summary>
         [JsonPropertyName("regex")]
         public string Regex { get; set; }

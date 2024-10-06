@@ -11,7 +11,7 @@
 		<PackageProjectUrl>https://github.com/egbakou/RESTCountries.NET</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/egbakou/RESTCountries.NET</RepositoryUrl>
 		<PackageIcon>icon.png</PackageIcon>
-		<Version>3.1.0</Version>
+		<Version>3.2.0</Version>
 		<PackageReleaseNotes>See: https://github.com/egbakou/RESTCountries.NET </PackageReleaseNotes>
 		<PackageTags>Countries, World, Continents, Phone-number, Cities, Capital</PackageTags>
 		<Copyright>Copyright 2019</Copyright>
@@ -45,11 +45,11 @@
 	<ItemGroup>
 		<None Include="..\..\nuget\readme.txt" PackagePath="readme.txt" Pack="true" />
 		<None Include="..\..\art\icon.png" Pack="true" PackagePath="" />
-		<None Include="..\..\nuget.md" Pack="true" PackagePath="\"/>
+		<None Include="..\..\nuget.md" Pack="true" PackagePath="\" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="System.Text.Json" Version="7.0.0" />
+		<PackageReference Include="System.Text.Json" Version="8.0.4" />
 	</ItemGroup>
 
 </Project>
