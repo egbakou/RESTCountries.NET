@@ -1,4 +1,4 @@
-# <img src="art/icon.png" alt="Icon" width="60" />RESTCountries.NET v3.0.0
+# <img src="art/icon.png" alt="Icon" width="60" />RESTCountries.NET
 A completely offline library to get information about countries.
 
 Documentation of the previous versions can be found [here](https://github.com/egbakou/RESTCountries.NET/blob/main/LEGACY_README_V2.md).
