@@ -2,7 +2,9 @@ using System.Linq;
 
 using RESTCountries.NET.Models;
 using RESTCountries.NET.Services;
+
 using Shouldly;
+
 using Xunit;
 
 namespace RESTCountries.NET.Tests
@@ -83,6 +85,17 @@ namespace RESTCountries.NET.Tests
             // Wrong case
             result = RestCountriesService.GetCountriesByCurrency("kkkkk").ToList();
             result.ShouldBeEmpty();
+
+            // v3.2.0
+            // BA(Bosnia and Herzegovina) curency should be BAM
+            var bosnia = RestCountriesService.GetCountriesByCurrency("BAM").ToList();
+            bosnia.ShouldNotBeEmpty();
+            bosnia.ShouldContain(c => c.Cca2.Equals("BA"));
+
+            // Sudan currency is SDG
+            var sudan = RestCountriesService.GetCountriesByCurrency("SDG").ToList();
+            sudan.ShouldNotBeEmpty();
+            sudan.ShouldContain(c => c.Cca2.Equals("SD"));
         }
 
         [Fact]
