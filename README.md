@@ -101,6 +101,20 @@ Here, you can choose the language you want. check out the the [`TranslationLangu
 List<string> result = RestCountriesService.GetAllCountriesNames(TranslationLanguage.French).ToList();
 ```
 
+- Get all states, identified by its s ISO2 code of the country
+
+
+```csharp
+State states = RestCountriesService.GetStatesByCountryCode("US").ToList();
+``` 
+
+- Get all cities within a specified state, identified by its state code and ISO2 code of the country
+
+```csharp
+City cities = RestCountriesService.GetCitiesInState("CA", "US").ToList();
+``` 
+
+
 ## Country class
 
 ```csharp
