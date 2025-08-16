@@ -11,6 +11,6 @@ namespace RESTCountries.NET.Models
         /// Gets or sets gPS coordinates of the capital. [latitude, longitude].
         /// </summary>
         [JsonPropertyName("latlng")]
-        private string[] Latlng { get; set; }
+        public double[] Latlng { get; set; }
     }
 }
