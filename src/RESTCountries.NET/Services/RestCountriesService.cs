@@ -31,7 +31,8 @@ namespace RESTCountries.NET.Services
         /// Get all countries.
         /// </summary>
         /// <returns>All countries.</returns>
-        public static IEnumerable<Country> GetAllCountries() => Data.OrderBy(c => c.Name.Common);
+        public static IEnumerable<Country> GetAllCountries()
+            => Data.OrderBy(c => c.Name.Common);
 
         /// <summary>
         /// Search by country name. It can be the native name or partial name.
@@ -115,18 +116,17 @@ namespace RESTCountries.NET.Services
         /// <param name="useCommonName">Use the common name or the official name.</param>
         /// <returns>Enumerable of country names.</returns>
         public static IEnumerable<string> GetAllCountriesNames(
-            string translationLanguage = "ENG",
+            string translationLanguage = TranslationLanguage.English,
             bool useCommonName = true)
         {
             // if the translation language is not provided, use the default one
             if (string.IsNullOrWhiteSpace(translationLanguage) ||
-                translationLanguage.Equals("ENG", StringComparison.InvariantCultureIgnoreCase))
+                translationLanguage.Equals(TranslationLanguage.English, StringComparison.InvariantCultureIgnoreCase))
             {
                 return Data.Select(c => useCommonName ? c.Name.Common : c.Name.Official)
                     .OrderBy(c => c);
             }
 
-            // if the translation language is provided, use the Translation property
             return Data.Select(c => useCommonName
                     ? c.Translations.TryGetValue(translationLanguage, out var t) ? t.Common : null
                     : c.Translations.TryGetValue(translationLanguage, out var t2)

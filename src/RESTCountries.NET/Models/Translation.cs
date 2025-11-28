@@ -26,118 +26,123 @@ namespace RESTCountries.NET.Models
     public static class TranslationLanguage
     {
         /// <summary>
+        /// English language.
+        /// </summary>
+        public const string English = "eng";
+
+        /// <summary>
         /// Arabic language.
         /// </summary>
-        public static readonly string Arabic = "arb";
+        public const string Arabic = "arb";
 
         /// <summary>
         /// Breton language.
         /// </summary>
-        public static readonly string Breton = "bre";
+        public const string Breton = "bre";
 
         /// <summary>
         /// Czech language.
         /// </summary>
-        public static readonly string Czech = "ces";
+        public const string Czech = "ces";
 
         /// <summary>
         /// Welsh language.
         /// </summary>
-        public static readonly string Welsh = "cym";
+        public const string Welsh = "cym";
 
         /// <summary>
         /// German language.
         /// </summary>
-        public static readonly string German = "deu";
+        public const string German = "deu";
 
         /// <summary>
         /// Estonian language.
         /// </summary>
-        public static readonly string Estonian = "est";
+        public const string Estonian = "est";
 
         /// <summary>
         /// Finnish language.
         /// </summary>
-        public static readonly string Finnish = "fin";
+        public const string Finnish = "fin";
 
         /// <summary>
         /// French language.
         /// </summary>
-        public static readonly string French = "fra";
+        public const string French = "fra";
 
         /// <summary>
         /// Croatian language.
         /// </summary>
-        public static readonly string Croatian = "hrv";
+        public const string Croatian = "hrv";
 
         /// <summary>
         /// Hungarian language.
         /// </summary>
-        public static readonly string Hungarian = "hun";
+        public const string Hungarian = "hun";
 
         /// <summary>
         /// Italian language.
         /// </summary>
-        public static readonly string Italian = "ita";
+        public const string Italian = "ita";
 
         /// <summary>
         /// Japanese language.
         /// </summary>
-        public static readonly string Japanese = "jpn";
+        public const string Japanese = "jpn";
 
         /// <summary>
         /// Korean language.
         /// </summary>
-        public static readonly string Korean = "kor";
+        public const string Korean = "kor";
 
         /// <summary>
         /// Dutch language.
         /// </summary>
-        public static readonly string Dutch = "nld";
+        public const string Dutch = "nld";
 
         /// <summary>
         /// Persian language.
         /// </summary>
-        public static readonly string Persian = "per";
+        public const string Persian = "per";
 
         /// <summary>
         /// Polish language.
         /// </summary>
-        public static readonly string Polish = "pol";
+        public const string Polish = "pol";
 
         /// <summary>
         /// Russian language.
         /// </summary>
-        public static readonly string Russian = "rus";
+        public const string Russian = "rus";
 
         /// <summary>
         /// Slovak language.
         /// </summary>
-        public static readonly string Slovak = "slk";
+        public const string Slovak = "slk";
 
         /// <summary>
         /// Spanish language.
         /// </summary>
-        public static readonly string Spanish = "spa";
+        public const string Spanish = "spa";
 
         /// <summary>
         /// Swedish language.
         /// </summary>
-        public static readonly string Swedish = "swe";
+        public const string Swedish = "swe";
 
         /// <summary>
         /// Turkish language.
         /// </summary>
-        public static readonly string Turkish = "tur";
+        public const string Turkish = "tur";
 
         /// <summary>
         /// Urdu language.
         /// </summary>
-        public static readonly string Urdu = "urd";
+        public const string Urdu = "urd";
 
         /// <summary>
         /// Chinese language.
         /// </summary>
-        public static readonly string Chinese = "zho";
+        public const string Chinese = "zho";
     }
 }
