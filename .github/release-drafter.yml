@@ -22,7 +22,6 @@ categories:
     labels:
       - "documentation"
   - title: "Dependencies"
-    collapse-after: 3
     labels:
       - "dependencies"
   - title: "Maintenance"
