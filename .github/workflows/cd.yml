@@ -38,7 +38,7 @@ jobs:
       run: dotnet pack --configuration Release -o nupkg
       working-directory: ./src/RESTCountries.NET
 
-    - name: Publish to NuGet
+    - name: Publish to NuGet # zizmor: ignore[use-trusted-publishing]
       run: dotnet nuget push ./src/RESTCountries.NET/nupkg/*.nupkg -k $NUGET_AUTH_TOKEN -s https://api.nuget.org/v3/index.json --skip-duplicate
       env:
         NUGET_AUTH_TOKEN: ${{ secrets.NUGET_API_KEY }}
