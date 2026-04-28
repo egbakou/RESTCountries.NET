@@ -32,7 +32,7 @@ jobs:
       with:
         persist-credentials: false
     - name: Setup .NET
-      uses: actions/setup-dotnet@c2fa09f4bde5ebb9d1777cf28262a3eb3db3ced7 # v5.0.2
+      uses: actions/setup-dotnet@c2fa09f4bde5ebb9d1777cf28262a3eb3db3ced7 # v5.2.0
       with:
         dotnet-version: ${{ matrix.dotnet-version }}
 
