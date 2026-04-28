@@ -1,0 +1,16 @@
+name: Release Drafter
+
+on:
+  push:
+    branches: [main]
+
+permissions: {}
+
+jobs:
+  update_release_draft:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: read
+    steps:
+      - uses: release-drafter/release-drafter@a6a982fee9675c45c1765e9fa5308f7d6c3ecbd4 # v7.2.0

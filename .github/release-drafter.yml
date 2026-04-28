@@ -1,0 +1,113 @@
+name-template: "v$RESOLVED_VERSION"
+tag-template: "v$RESOLVED_VERSION"
+
+categories:
+  - title: "Features"
+    labels:
+      - "feature"
+      - "enhancement"
+  - title: "Bug Fixes"
+    labels:
+      - "bug"
+  - title: "Performance"
+    labels:
+      - "performance"
+  - title: "Refactoring"
+    labels:
+      - "refactor"
+  - title: "Tests"
+    labels:
+      - "tests"
+  - title: "Documentation"
+    labels:
+      - "documentation"
+  - title: "Dependencies"
+    collapse-after: 3
+    labels:
+      - "dependencies"
+  - title: "Maintenance"
+    labels:
+      - "chore"
+
+exclude-labels:
+  - "skip-changelog"
+  - "duplicate"
+  - "invalid"
+  - "wontfix"
+
+change-template: "- $TITLE (#$NUMBER) @$AUTHOR"
+change-title-escapes: '\<*_&'
+
+version-resolver:
+  major:
+    labels:
+      - "major"
+  minor:
+    labels:
+      - "minor"
+      - "feature"
+      - "enhancement"
+  patch:
+    labels:
+      - "patch"
+      - "bug"
+      - "dependencies"
+      - "chore"
+      - "refactor"
+      - "performance"
+      - "tests"
+      - "documentation"
+  default: patch
+
+autolabeler:
+  - label: "feature"
+    branch:
+      - '/feat(ure)?\/.+/'
+    title:
+      - "/^feat/i"
+  - label: "bug"
+    branch:
+      - '/fix\/.+/'
+    title:
+      - "/^fix/i"
+  - label: "chore"
+    branch:
+      - '/chore\/.+/'
+    title:
+      - "/^chore(?!\\(deps\\))/i"
+  - label: "refactor"
+    branch:
+      - '/refactor\/.+/'
+    title:
+      - "/^refactor/i"
+  - label: "documentation"
+    branch:
+      - '/docs?\/.+/'
+    title:
+      - "/^docs?/i"
+    files:
+      - "*.md"
+  - label: "performance"
+    branch:
+      - '/perf\/.+/'
+    title:
+      - "/^perf/i"
+  - label: "tests"
+    branch:
+      - '/tests?\/.+/'
+    title:
+      - "/^tests?/i"
+  - label: "dependencies"
+    branch:
+      - '/depend(encies|abot)\/.+/'
+    title:
+      - "/^chore\\(deps\\)/i"
+
+template: |
+  ## What's Changed
+
+  $CHANGES
+
+  ## Contributors
+
+  $CONTRIBUTORS
