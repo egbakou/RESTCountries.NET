@@ -1,9 +1,8 @@
-name: CD (Draft Release)
+name: CD (Pre-release Check)
 
 on:
   release:
     types: [created]
-  workflow_dispatch:
 
 permissions: {}
 
@@ -15,7 +14,7 @@ env:
 
 jobs:
   verify-nuget-key:
-    if: github.event.release.draft == true || github.event_name == 'workflow_dispatch'
+    if: github.event.release.draft == true || github.event.release.prerelease == true
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -44,7 +43,7 @@ jobs:
           NUGET_AUTH_TOKEN: ${{ secrets.NUGET_API_KEY }}
 
   build:
-    if: github.event.release.draft == true || github.event_name == 'workflow_dispatch'
+    if: github.event.release.draft == true || github.event.release.prerelease == true
     needs: verify-nuget-key
     runs-on: ubuntu-latest
     permissions:
@@ -68,5 +67,7 @@ jobs:
         working-directory: ./tests/RESTCountries.NET.Tests
 
       - name: Pack
-        run: dotnet pack --configuration Release -o nupkg
+        run: dotnet pack --configuration Release -p:Version=${RELEASE_VERSION#v} -o nupkg
         working-directory: ./src/RESTCountries.NET
+        env:
+          RELEASE_VERSION: ${{ github.event.release.tag_name }}
