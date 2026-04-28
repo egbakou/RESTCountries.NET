@@ -6,6 +6,10 @@ on:
 
 permissions: {}
 
+env:
+  DOTNET_NOLOGO: true
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -30,12 +34,11 @@ jobs:
       run: dotnet test --configuration Release
       working-directory: ./tests/RESTCountries.NET.Tests
 
-    - name: Generate nuget package
+    - name: Pack
       run: dotnet pack --configuration Release -o nupkg
       working-directory: ./src/RESTCountries.NET
 
-    - name: Publish nuget package
-      run: find . -name *.nupkg -type f -print0 | xargs -0 -I pkg dotnet nuget push pkg -k $nuget_api_key -s "https://api.nuget.org/v3/index.json" --skip-duplicate
+    - name: Publish to NuGet
+      run: dotnet nuget push ./src/RESTCountries.NET/nupkg/*.nupkg -k $NUGET_AUTH_TOKEN -s https://api.nuget.org/v3/index.json --skip-duplicate
       env:
-        nuget_api_key: ${{ secrets.NUGET_API_KEY }}
-      working-directory: ./src/RESTCountries.NET/nupkg
+        NUGET_AUTH_TOKEN: ${{ secrets.NUGET_API_KEY }}
