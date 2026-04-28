@@ -1,0 +1,71 @@
+name: CD (Draft Release)
+
+on:
+  release:
+    types: [created]
+
+permissions: {}
+
+env:
+  DOTNET_NOLOGO: true
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
+  PACKAGE_NAME: RESTCountries.NET
+  PACKAGE_TEST_VERSION: "1.0.0"
+
+jobs:
+  verify-nuget-key:
+    if: github.event.release.draft == true
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Check NuGet API key validity # zizmor: ignore[use-trusted-publishing]
+        run: |
+          echo "Downloading $PACKAGE_NAME $PACKAGE_TEST_VERSION to validate API key"
+          if ! curl -fsSL -o "$PACKAGE_NAME.$PACKAGE_TEST_VERSION.nupkg" \
+            "https://www.nuget.org/api/v2/package/$PACKAGE_NAME/$PACKAGE_TEST_VERSION"; then
+            echo "::error::Failed to download test package"
+            exit 1
+          fi
+
+          echo "Pushing package to verify NuGet API key validity"
+          if ! dotnet nuget push "$PACKAGE_NAME.$PACKAGE_TEST_VERSION.nupkg" \
+            -k $NUGET_AUTH_TOKEN \
+            -s https://api.nuget.org/v3/index.json \
+            --skip-duplicate; then
+            echo "::error::NuGet API key is invalid or expired. Rotate the NUGET_API_KEY secret and retry."
+            exit 1
+          fi
+
+          echo "API key is valid"
+          rm -f "$PACKAGE_NAME.$PACKAGE_TEST_VERSION.nupkg"
+        env:
+          NUGET_AUTH_TOKEN: ${{ secrets.NUGET_API_KEY }}
+
+  build:
+    if: github.event.release.draft == true
+    needs: verify-nuget-key
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@c2fa09f4bde5ebb9d1777cf28262a3eb3db3ced7 # v5.2.0
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Build
+        run: dotnet build --configuration Release
+        working-directory: ./src/RESTCountries.NET
+
+      - name: Run unit tests
+        run: dotnet test --configuration Release
+        working-directory: ./tests/RESTCountries.NET.Tests
+
+      - name: Pack
+        run: dotnet pack --configuration Release -o nupkg
+        working-directory: ./src/RESTCountries.NET
