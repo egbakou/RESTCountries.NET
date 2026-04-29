@@ -14,3 +14,5 @@ jobs:
       pull-requests: write
     steps:
       - uses: release-drafter/release-drafter/autolabeler@5de93583980a40bd78603b6dfdcda5b4df377b32 # v7.2.0
+        with:
+          config-name: release-drafter-template.yml
