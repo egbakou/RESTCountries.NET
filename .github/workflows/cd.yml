@@ -2,7 +2,7 @@ name: CD
 
 on:
   release:
-    types: [published]
+    types: [released]
 
 permissions: {}
 
@@ -12,7 +12,6 @@ env:
 
 jobs:
   build:
-    if: github.event.release.prerelease == false
     runs-on: ubuntu-latest
     permissions:
       contents: read

@@ -2,7 +2,7 @@ name: CD (Pre-release Check)
 
 on:
   release:
-    types: [created]
+    types: [published]
 
 permissions: {}
 
@@ -14,7 +14,7 @@ env:
 
 jobs:
   verify-nuget-key:
-    if: github.event.release.draft == true || github.event.release.prerelease == true
+    if: github.event.release.prerelease == true
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -43,7 +43,7 @@ jobs:
           NUGET_AUTH_TOKEN: ${{ secrets.NUGET_API_KEY }}
 
   build:
-    if: github.event.release.draft == true || github.event.release.prerelease == true
+    if: github.event.release.prerelease == true
     needs: verify-nuget-key
     runs-on: ubuntu-latest
     permissions:
