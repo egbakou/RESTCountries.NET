@@ -35,8 +35,10 @@ jobs:
       working-directory: ./tests/RESTCountries.NET.Tests
 
     - name: Pack
-      run: dotnet pack --configuration Release -o nupkg
+      run: dotnet pack --configuration Release -p:Version=${RELEASE_VERSION#v} -o nupkg
       working-directory: ./src/RESTCountries.NET
+      env:
+        RELEASE_VERSION: ${{ github.event.release.tag_name }}
 
     - name: Publish to NuGet # zizmor: ignore[use-trusted-publishing]
       run: dotnet nuget push ./src/RESTCountries.NET/nupkg/*.nupkg -k $NUGET_AUTH_TOKEN -s https://api.nuget.org/v3/index.json --skip-duplicate
