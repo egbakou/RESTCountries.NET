@@ -21,6 +21,9 @@ categories:
   - title: "Documentation"
     labels:
       - "documentation"
+  - title: "CI/CD"
+    labels:
+      - "ci-cd"
   - title: "Dependencies"
     labels:
       - "dependencies"
@@ -52,6 +55,7 @@ version-resolver:
       - "bug"
       - "dependencies"
       - "chore"
+      - "ci-cd"
       - "refactor"
       - "performance"
       - "tests"
@@ -59,48 +63,35 @@ version-resolver:
   default: patch
 
 autolabeler:
+  - label: "ci-cd"
+    title:
+      - "/^chore\\((ci-?cd|actions|workflows?)\\)/i"
+  - label: "dependencies"
+    title:
+      - "/^chore\\(deps\\)/i"
   - label: "feature"
-    branch:
-      - '/feat(ure)?\/.+/'
     title:
       - "/^feat/i"
   - label: "bug"
-    branch:
-      - '/fix\/.+/'
     title:
       - "/^fix/i"
   - label: "chore"
-    branch:
-      - '/chore\/.+/'
     title:
-      - "/^chore(?!\\(deps\\))/i"
+      - "/^chore(?!\\()/i"
   - label: "refactor"
-    branch:
-      - '/refactor\/.+/'
     title:
       - "/^refactor/i"
   - label: "documentation"
-    branch:
-      - '/docs?\/.+/'
     title:
       - "/^docs?/i"
     files:
       - "*.md"
   - label: "performance"
-    branch:
-      - '/perf\/.+/'
     title:
       - "/^perf/i"
   - label: "tests"
-    branch:
-      - '/tests?\/.+/'
     title:
       - "/^tests?/i"
-  - label: "dependencies"
-    branch:
-      - '/depend(encies|abot)\/.+/'
-    title:
-      - "/^chore\\(deps\\)/i"
 
 template: |
   ## What's Changed
